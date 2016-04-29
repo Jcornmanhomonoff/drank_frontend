@@ -43,7 +43,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Welcome to the party!</h4>
+                            <h4 class="modal-title" id="myModalLabel">Let's get this party started!</h4>
                           </div>
                           <div class="modal-body">
                   <!--SIGN UP FORM-->
@@ -72,10 +72,11 @@
                     </div></li>
 
 
-
+            <!-- SIGN OUT BUTTON-->
               <li id="sign-out">
                 <a href="#">Gotta go!</a>
               </li>
+
 
                 <!-- SIGN IN MODAL -->
                     <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -83,7 +84,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Let's get this party started!</h4>
+                            <h4 class="modal-title" id="myModalLabel">Welcome to the party!</h4>
                           </div>
                           <div class="modal-body">
                   <!--SIGN IN FORM-->
@@ -111,12 +112,49 @@
                       </div>
                     </div>
 
+              <!-- CHANGE PASSWORD MODAL -->
+                  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Make a new Secret!</h4>
+                        </div>
+                        <div class="modal-body">
+                <!--CHANGE PASSWORD FORM-->
+                          <form id='change-password' class="form-horizontal">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-2 control-label">Old Password</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" name="passwords[old]" placeholder="Password">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-2 control-label">New Password</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" name="passwords[new]" placeholder="Password">
+                              </div>
+                            </div>
+                <!--CONTINUATION OF POPUP-->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Change Password</button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+          <!--DROP DOWN-->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Let's do this! <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                  <li class="open-sign-up"><a href="#">Sign Up</a></li>
+                  <li role="separator" class="divider"></li>
                   <li class="open-sign-in"><a href="#">Sign In</a></li>
                   <li role="separator" class="divider"></li>
-                  <li class="open-sign-up"><a href="#">Sign Up</a></li>
+                  <li class="open-change-password"><a href="#">Change Password</a></li>
                 </ul>
               </li>
             </ul>

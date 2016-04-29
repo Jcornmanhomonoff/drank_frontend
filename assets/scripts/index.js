@@ -20,6 +20,7 @@ const authUi = require('./auth/ui');
   });
   $('#sign-in').on('submit', function (event) {
     let data = getFormFields(this);
+    console.log("sign-in success");
     event.preventDefault();
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
@@ -31,5 +32,27 @@ const authUi = require('./auth/ui');
   $('#change-password').on('submit', function (event){
     let data = getFormFields(this);
     event.preventDefault();
-    authApi.changePassword(authUi.success, authUi.failure, data);
+    authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
   });
+
+
+
+// SIGN UP AND IN, MODAL DROP DOWN
+
+// OPENS SIGNIN FROM DROPDOWN
+$('.open-sign-in').on('click', function(event){
+  event.preventDefault();
+  $('#signInModal').modal('show');
+});
+
+// OPENS SIGNUP FROM DROPDOWN
+$('.open-sign-up').on('click', function(event){
+  event.preventDefault();
+  $('#signUpModal').modal('show');
+});
+
+// OPENS CHANGE PASSWORD FROM DROPDOWN
+$('.open-change-password').on('click', function(event){
+  event.preventDefault();
+  $('#changePasswordModal').modal('show');
+});
