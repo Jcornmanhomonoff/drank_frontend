@@ -10,6 +10,8 @@ const getFormFields = require('../../lib/get-form-fields');
 
 const authApi = require('./auth/api');
 const authUi = require('./auth/ui');
+// const app = require('./app-data.js');
+
 
 // const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
@@ -25,7 +27,7 @@ const authUi = require('./auth/ui');
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
   $('#sign-out').on('click', function (event) {
-    console.log("sign-out success")
+    console.log("sign-out success");
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
   });
@@ -33,6 +35,27 @@ const authUi = require('./auth/ui');
     let data = getFormFields(this);
     event.preventDefault();
     authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
+  });
+  $('#create-drink').on('submit', function (event){
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log(data);
+    data.drinks.user_id = authUi.currentUser.id;
+    authApi.newDrink(authUi.newDrinkSuccess, authUi.failure, data);
+    authApi.newIngredient(authUi.newIngredientSuccess, authUi.failure, data);
+  });
+  $('#get-drank').on('click', function (event){
+    event.preventDefault();
+    authApi.getDrank(authUi.getDrankSuccess, authUi.failure);
+    authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure);
+  });
+  $('#edit-drink').on('submit', function (event){
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log(data);
+    data.drinks.user_id = authUi.currentUser.id;
+    authApi.newDrink(authUi.newDrinkSuccess, authUi.failure, data);
+    authApi.newIngredient(authUi.newIngredientSuccess, authUi.failure, data);
   });
 
 
@@ -55,4 +78,10 @@ $('.open-sign-up').on('click', function(event){
 $('.open-change-password').on('click', function(event){
   event.preventDefault();
   $('#changePasswordModal').modal('show');
+});
+
+// OPENS CREATE NEW DRINK FROM BUTTON
+$('.open-create-drink').on('click', function(event){
+  event.preventDefault();
+  $('#createDrinkModal').modal('show');
 });

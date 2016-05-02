@@ -24,9 +24,9 @@ const signOut = (success, failure) => {
   // debugger;
   $.ajax({
     method:'DELETE',
-    url: app.api + '/sign-out/' + app.user.id,
+    url: app.api + '/sign-out/' + ui.currentUser.id,
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + ui.currentUser.token,
     },
   })
   .done(success)
@@ -47,20 +47,130 @@ const signIn = (success, failure, data) => {
 const changePassword = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
-    url: app.api + '/change-password/' + app.user.id,
+    url: app.api + '/change-password/' + ui.currentUser.id,
     data,
     headers: {
-      Authorization: 'Token token='+ app.user.token,
+      Authorization: 'Token token='+ ui.currentUser.token,
     },
   })
   .done(success)
   .fail(failure);
   };
 
+  const newDrink = (success, failure, data) => {
+    // debugger;
+    console.log(data);
+    console.log(ui.currentUser.token);
+    $.ajax({
+      method:'POST',
+      url: app.api  + '/drinks',
+      headers: {
+        Authorization: 'Token token='+ ui.currentUser.token,
+      },
+      data: {
+        "drink": {
+          "name": data.drinks.name
+        }
+      },
+    })
+    .done(success)
+    .fail(failure);
+  };
+
+  const newIngredient = (success, failure, data) => {
+    // debugger;
+    console.log(data);
+    console.log(ui.currentUser.token);
+    $.ajax({
+      method:'POST',
+      url: app.api  + '/ingredients',
+      headers: {
+        Authorization: 'Token token='+ ui.currentUser.token,
+      },
+      data: {
+        "ingredient": {
+          "alcohol": data.drinks.alcohol,
+          "mixer": data.drinks.mixer,
+          "suggestion": data.drinks.suggestion
+        }
+      },
+    })
+    .done(success)
+    .fail(failure);
+  };
+
+  const getDrank = (success, failure) => {
+    $.ajax({
+      method:'GET',
+      url: app.api  + '/drinks',
+      headers: {
+        Authorization: 'Token token='+ ui.currentUser.token,
+      },
+    })
+    .done(success)
+    .fail(failure);
+  };
+
+  const getIngredients = (success, failure) => {
+    $.ajax({
+      method:'GET',
+      url: app.api  + '/ingredients',
+      headers: {
+        Authorization: 'Token token='+ ui.currentUser.token,
+      },
+    })
+    .done(success)
+    .fail(failure);
+  };
+
+  const editDrank = (success, failure) => {
+    // debugger;
+    $.ajax({
+      method:'PATCH',
+      url: app.api + '/drinks/' + ui.currentUser.id,
+      headers: {
+        Authorization: 'Token token='+ ui.currentUser.token,
+      },
+      data: {
+        "drink": {
+          "name": data.drinks.name
+        }
+      },
+      })
+      .done(success)
+      .fail(failure);
+  };
+
+  // const newIngredient = (success, failure, data) => {
+  //   // debugger;
+  //   console.log(data);
+  //   console.log(ui.currentUser.token);
+  //   $.ajax({
+  //     method:'POST',
+  //     url: app.api  + '/drink_ingredients',
+  //     headers: {
+  //       Authorization: 'Token token='+ ui.currentUser.token,
+  //     },
+  //     data: {
+  //       "drink_ingredient": {
+  //         "drink_id": data.drinks.drink_id,
+  //         "ingredient_id": data.drinks.ingredient_id,
+  //       }
+  //     },
+  //   })
+  //   .done(success)
+  //   .fail(failure);
+  // };
 
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  newDrink,
+  newIngredient,
+  getDrank,
+  getIngredients,
+  editDrank,
+  app,
 };

@@ -164,5 +164,113 @@
 <!--END NAV BAR -->
 
 
+<button type="button" class="btn btn-default open-create-drink" data-dismiss="modal">Mix Up a Drink</button>
+
+<!--CREATE DRINK MODAL-->
+    <div class="modal fade" id="createDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">What's in your cocktail?</h4>
+          </div>
+          <div class="modal-body">
+  <!--CREATE DRINK FORM-->
+            <form id='create-drink' class="form-horizontal">
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Cocktail</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[name]" placeholder="Margarita">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Alcohol</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[alcohol]" placeholder="2 oz Tequila">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Mixers</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Suggestions</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[suggestion]" placeholder="Salted rim">
+                </div>
+              </div>
+  <!--CONTINUATION OF POPUP-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add it to the list!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<!--END CREATE DRINK MODAL-->
+
+
+
+
+
+<!--EDIT DRINK MODAL-->
+    <div class="modal fade" id="editDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Jazz up your drink!</h4>
+          </div>
+          <div class="modal-body">
+  <!--EDIT DRINK FORM-->
+            <form id='edit-drink' class="form-horizontal">
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Cocktail</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[name]" placeholder="Margarita">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Alcohol</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[alcohol]" placeholder="2 oz Tequila">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Mixers</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Suggestions</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cocktailName" name="drinks[suggestion]" placeholder="Salted rim">
+                </div>
+              </div>
+  <!--CONTINUATION OF POPUP-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add it to the list!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<!--END EDIT DRINK MODAL-->
+
+
+
+<div class="content">
+</div>
+<!--GET DRINK-->
+<button type="button" id="get-drank" class="btn btn-default get-drank" data-dismiss="modal">What Drinks Do I have?</button>
+<!--END GET DRINK-->
+
     </body>
 </html>
