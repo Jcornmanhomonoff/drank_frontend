@@ -10,6 +10,7 @@ const getFormFields = require('../../lib/get-form-fields');
 
 const authApi = require('./auth/api');
 const authUi = require('./auth/ui');
+const authDrink = require('./auth/drinkApi');
 // const app = require('./app-data.js');
 
 
@@ -46,16 +47,8 @@ const authUi = require('./auth/ui');
   });
   $('#get-drank').on('click', function (event){
     event.preventDefault();
-    authApi.getDrank(authUi.getDrankSuccess, authUi.failure);
+    authDrink.getDrank(authUi.getDrankSuccess, authUi.failure);
     authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure);
-  });
-  $('#edit-drink').on('submit', function (event){
-    event.preventDefault();
-    let data = getFormFields(this);
-    console.log(data);
-    data.drinks.user_id = authUi.currentUser.id;
-    authApi.newDrink(authUi.newDrinkSuccess, authUi.failure, data);
-    authApi.newIngredient(authUi.newIngredientSuccess, authUi.failure, data);
   });
 
 

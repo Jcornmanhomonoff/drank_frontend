@@ -1,8 +1,11 @@
 {{#each data}}
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 col-md-offset-4">
     {{this.name}}
-    <button type="button" id="editDrank" class="btn btn-default open-update-drink" data-dismiss="modal">Spruce Things Up!</button>
+    <button type="button" data-drink-id="{{this.id}}" class="btn btn-default open-edit-drink" data-dismiss="modal" data-target="#editDrinkModal">Spruce Things Up!</button>
+{{/each}}
+    {{#each ingredients}}
+    <p>{{this.id}}</p>
   </div>
 </div>
 {{/each}}

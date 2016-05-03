@@ -8,12 +8,13 @@
 const app = require('../app-data.js');
 const ui = require('./ui.js');
 
+console.log(ui);
 
 const signUp = (success, failure, data) => {
   // debugger;
   $.ajax({
     method:'POST',
-    url: app.api  + '/sign-up',
+    url: app.api + 'sign-up',
     data,
   })
   .done(success)
@@ -24,9 +25,9 @@ const signOut = (success, failure) => {
   // debugger;
   $.ajax({
     method:'DELETE',
-    url: app.api + '/sign-out/' + ui.currentUser.id,
+    url: app.api + 'sign-out/' + app.id,
     headers: {
-      Authorization: 'Token token=' + ui.currentUser.token,
+      Authorization: 'Token token=' + app.token,
     },
   })
   .done(success)
@@ -37,7 +38,7 @@ const signIn = (success, failure, data) => {
   // debugger;
   $.ajax({
     method:'POST',
-    url: app.api + '/sign-in',
+    url: app.api + 'sign-in',
     data: data,
   })
   .done(success)
@@ -47,10 +48,10 @@ const signIn = (success, failure, data) => {
 const changePassword = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
-    url: app.api + '/change-password/' + ui.currentUser.id,
+    url: app.api + 'change-password/' + app.id,
     data,
     headers: {
-      Authorization: 'Token token='+ ui.currentUser.token,
+      Authorization: 'Token token='+ app.token,
     },
   })
   .done(success)
@@ -60,12 +61,12 @@ const changePassword = (success, failure, data) => {
   const newDrink = (success, failure, data) => {
     // debugger;
     console.log(data);
-    console.log(ui.currentUser.token);
+    console.log(app.token);
     $.ajax({
       method:'POST',
-      url: app.api  + '/drinks',
+      url: app.api + 'drinks',
       headers: {
-        Authorization: 'Token token='+ ui.currentUser.token,
+        Authorization: 'Token token='+ app.token,
       },
       data: {
         "drink": {
@@ -80,12 +81,12 @@ const changePassword = (success, failure, data) => {
   const newIngredient = (success, failure, data) => {
     // debugger;
     console.log(data);
-    console.log(ui.currentUser.token);
+    console.log(app.token);
     $.ajax({
       method:'POST',
-      url: app.api  + '/ingredients',
+      url: app.api + 'ingredients',
       headers: {
-        Authorization: 'Token token='+ ui.currentUser.token,
+        Authorization: 'Token token='+ app.token,
       },
       data: {
         "ingredient": {
@@ -99,68 +100,36 @@ const changePassword = (success, failure, data) => {
     .fail(failure);
   };
 
-  const getDrank = (success, failure) => {
-    $.ajax({
-      method:'GET',
-      url: app.api  + '/drinks',
-      headers: {
-        Authorization: 'Token token='+ ui.currentUser.token,
-      },
-    })
-    .done(success)
-    .fail(failure);
-  };
 
   const getIngredients = (success, failure) => {
     $.ajax({
       method:'GET',
-      url: app.api  + '/ingredients',
+      url: app.api + 'ingredients',
       headers: {
-        Authorization: 'Token token='+ ui.currentUser.token,
+        Authorization: 'Token token='+ app.token,
       },
     })
     .done(success)
     .fail(failure);
   };
 
-  const editDrank = (success, failure) => {
+
+  const editIngredient = (success, failure, data, id) => {
     // debugger;
+    console.log(id);
+    console.log(app.token);
     $.ajax({
       method:'PATCH',
-      url: app.api + '/drinks/' + ui.currentUser.id,
+      url: app.api + 'ingredients/' + id,
       headers: {
-        Authorization: 'Token token='+ ui.currentUser.token,
+        Authorization: 'Token token='+ app.token,
       },
-      data: {
-        "drink": {
-          "name": data.drinks.name
-        }
-      },
-      })
-      .done(success)
-      .fail(failure);
+    })
+    .done(success)
+    .fail(failure);
   };
 
-  // const newIngredient = (success, failure, data) => {
-  //   // debugger;
-  //   console.log(data);
-  //   console.log(ui.currentUser.token);
-  //   $.ajax({
-  //     method:'POST',
-  //     url: app.api  + '/drink_ingredients',
-  //     headers: {
-  //       Authorization: 'Token token='+ ui.currentUser.token,
-  //     },
-  //     data: {
-  //       "drink_ingredient": {
-  //         "drink_id": data.drinks.drink_id,
-  //         "ingredient_id": data.drinks.ingredient_id,
-  //       }
-  //     },
-  //   })
-  //   .done(success)
-  //   .fail(failure);
-  // };
+
 
 module.exports = {
   signUp,
@@ -169,8 +138,7 @@ module.exports = {
   changePassword,
   newDrink,
   newIngredient,
-  getDrank,
   getIngredients,
-  editDrank,
+  editIngredient,
   app,
 };
