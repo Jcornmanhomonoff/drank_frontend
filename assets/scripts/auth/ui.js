@@ -25,6 +25,8 @@ const signInSuccess = (data) => {
   console.log(app);
   $('#signInModal').modal('hide');
   $(".modal-backdrop").hide();
+  $('.open-create-drink').show();
+  $('.get-drank').show();
 };
 
 const changePasswordSuccess = (data) => {
@@ -81,12 +83,14 @@ const getDrankSuccess = (data) => {
   });
   $('#edit-drink').on('submit', function (event){
     event.preventDefault();
-    // debugger
     let data = $('#name').val();
     let id = localStorage.getItem('id'); //gets current drink id
     localStorage.clear();
     drinkApi.editDrank(editDrankSuccess, failure, data, id);
   });
+  $('.deleteDrank').on('submit', function (event){
+    event.preventDefault();
+  })
 };
 
 const getIngredientsSuccess = (data) => {
@@ -109,13 +113,12 @@ const getIngredientsSuccess = (data) => {
 
 
 const editDrankSuccess = (data) => {
-  // console.log(data);
-  // debugger
   app.drinkId = data.drink.id;
   console.log(app);
   $('#editDrinkModal').modal('hide');
   $(".modal-backdrop").hide();
-
+  $('.content').html('');
+  drinkApi.getDrank(getDrankSuccess, failure);
 };
 
 const editIngredientSuccess = (data) => {

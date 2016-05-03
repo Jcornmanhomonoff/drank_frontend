@@ -24,7 +24,6 @@ const getDrank = (success, failure) => {
 
 
 const editDrank = (success, failure, data, drinkId) => {
-  console.log(drinkId);
   $.ajax({
     method:'PATCH',
     url: app.api + 'drinks/' + drinkId,
@@ -41,8 +40,23 @@ const editDrank = (success, failure, data, drinkId) => {
     .fail(failure);
 };
 
+const deleteDrank = (success, failure, data, id) => {
+  // debugger;
+  console.log(id);
+  console.log(app.token);
+  $.ajax({
+    method:'DELETE',
+    url: app.api + 'ingredients/' + id,
+    headers: {
+      Authorization: 'Token token='+ app.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
 
 module.exports = {
   getDrank,
   editDrank,
+  deleteDrank,
 };
