@@ -51,6 +51,11 @@ const authDrink = require('./auth/drinkApi');
     authDrink.getDrank(authUi.getDrankSuccess, authUi.failure);
     authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure);
   });
+  // $('.delete-drank').on('submit', function (event){
+  //   event.preventDefault();
+  //   authDrink.deleteDrank(authUi.deleteDrankSuccess, authUi.failure);
+  //   console.log('delete success');
+  // });
 
 
 

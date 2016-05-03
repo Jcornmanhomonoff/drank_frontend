@@ -90,7 +90,9 @@ const getDrankSuccess = (data) => {
   });
   $('.deleteDrank').on('submit', function (event){
     event.preventDefault();
-  })
+    let id = localStorage.getItem('id'); //gets current drink id
+    drinkApi.deleteDrank(success, failure, id);
+  });
 };
 
 const getIngredientsSuccess = (data) => {
@@ -129,10 +131,16 @@ const editIngredientSuccess = (data) => {
   $(".modal-backdrop").hide();
 };
 
-
+// const deleteDrankSuccess = () => {
+//   $('#editDrinkModal').modal('hide');
+//   console.log(app);
+// }
 
 const signOutSuccess = () => {
   app.user = null;
+  $('#editDrinkModal').modal('hide');
+  $('#createDrinkModal').modal('hide');
+
   console.log(app);
 };
 
