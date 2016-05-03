@@ -8,16 +8,13 @@ const drinkApi = require('./drinkApi');
 console.log(app);
 console.log(drinkApi);
 
-//
-// let app = {
-//   drinkId:'',
-//   ingredientId:'',
-// };
-//
-// let currentUser = {
-//   token:'',
-//   id: undefined,
-// };
+const success = (data) => {
+  console.log(data);
+};
+
+const failure = (error) => {
+  console.error(error);
+};
 
 const signInSuccess = (data) => {
   app.token = data.user.token;
@@ -47,7 +44,6 @@ const newDrinkSuccess = (data) => {
 
 const newIngredientSuccess = (data) => {
   app.ingredientId = data.id;
-  console.log(app.ingredientId);
   console.log(app);
   $('#createDrinkModal').modal('hide');
   $(".modal-backdrop").hide();
@@ -68,7 +64,7 @@ const getDrankSuccess = (data) => {
   console.log(data);
 
 
-  // OPENS EDIT DRINK FROM BUTTON
+  // OPENS EDIT DRINK FORM BUTTON
   $('.open-edit-drink').on('click', function(event){
     event.preventDefault();
     localStorage.setItem('id', $(this).attr('data-drink-id'));
@@ -85,10 +81,9 @@ const getDrankSuccess = (data) => {
     event.preventDefault();
     let data = $('#name').val();
     let id = localStorage.getItem('id'); //gets current drink id
-    localStorage.clear();
     drinkApi.editDrank(editDrankSuccess, failure, data, id);
   });
-  $('.deleteDrank').on('submit', function (event){
+  $('.delete-drank').on('click', function (event){
     event.preventDefault();
     let id = localStorage.getItem('id'); //gets current drink id
     drinkApi.deleteDrank(success, failure, id);
@@ -121,6 +116,7 @@ const editDrankSuccess = (data) => {
   $(".modal-backdrop").hide();
   $('.content').html('');
   drinkApi.getDrank(getDrankSuccess, failure);
+  localStorage.clear();
 };
 
 const editIngredientSuccess = (data) => {
@@ -129,6 +125,7 @@ const editIngredientSuccess = (data) => {
   console.log(app);
   $('#editDrinkModal').modal('hide');
   $(".modal-backdrop").hide();
+  localStorage.clear();
 };
 
 // const deleteDrankSuccess = () => {
@@ -144,13 +141,6 @@ const signOutSuccess = () => {
   console.log(app);
 };
 
-const success = (data) => {
-  console.log(data);
-};
-
-const failure = (error) => {
-  console.error(error);
-};
 
 module.exports = {
   failure,

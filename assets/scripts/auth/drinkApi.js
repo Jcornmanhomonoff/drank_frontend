@@ -43,7 +43,22 @@ const editDrank = (success, failure, data, drinkId) => {
 };
 
 
+const deleteDrank = (success, failure, drinkId) => {
+  console.log(drinkId);
+  $.ajax({
+    method:'DELETE',
+    url: app.api + 'drinks/' + drinkId,
+    headers: {
+      Authorization: 'Token token='+ app.token,
+    },
+    })
+    .done(success)
+    .fail(failure);
+};
+
+
 module.exports = {
   getDrank,
   editDrank,
+  deleteDrank,
 };
