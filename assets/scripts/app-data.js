@@ -1,7 +1,7 @@
 'use strict';
 
 const app = {
-  api: 'https://immense-beach-77036.herokuapp.com/',
+  api: 'https://protected-cove-96634.herokuapp.com/',
 };
 
 module.exports = app;
