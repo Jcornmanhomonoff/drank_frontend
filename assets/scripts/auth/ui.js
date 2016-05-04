@@ -56,6 +56,11 @@ const signUpSuccess = (data) => {
   console.log(data);
 };
 
+const deleteDrankSuccess = () => {
+  $('.content').html('');
+  localStorage.clear();
+};
+
 const getDrankSuccess = (data) => {
   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
   $('.content').append(getDrankDisplayTemplate({
@@ -86,7 +91,7 @@ const getDrankSuccess = (data) => {
   $('.delete-drank').on('click', function (event){
     event.preventDefault();
     let id = localStorage.getItem('id'); //gets current drink id
-    drinkApi.deleteDrank(success, failure, id);
+    drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
   });
 };
 
@@ -137,9 +142,9 @@ const signOutSuccess = () => {
   app.user = null;
   $('#editDrinkModal').modal('hide');
   $('#createDrinkModal').modal('hide');
-
   console.log(app);
 };
+
 
 
 module.exports = {
@@ -156,4 +161,5 @@ module.exports = {
   getIngredientsSuccess,
   editDrankSuccess,
   editIngredientSuccess,
+  deleteDrankSuccess,
 };
