@@ -384,6 +384,11 @@ webpackJsonp([0],[
 	  console.log(data);
 	};
 
+	var deleteDrankSuccess = function deleteDrankSuccess() {
+	  $('.content').html('');
+	  localStorage.clear();
+	};
+
 	var getDrankSuccess = function getDrankSuccess(data) {
 	  var getDrankDisplayTemplate = __webpack_require__(9);
 	  $('.content').append(getDrankDisplayTemplate({
@@ -414,7 +419,7 @@ webpackJsonp([0],[
 	  $('.delete-drank').on('click', function (event) {
 	    event.preventDefault();
 	    var id = localStorage.getItem('id'); //gets current drink id
-	    drinkApi.deleteDrank(success, failure, id);
+	    drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
 	  });
 	};
 
@@ -463,7 +468,6 @@ webpackJsonp([0],[
 	  app.user = null;
 	  $('#editDrinkModal').modal('hide');
 	  $('#createDrinkModal').modal('hide');
-
 	  console.log(app);
 	};
 
@@ -480,7 +484,8 @@ webpackJsonp([0],[
 	  getDrankSuccess: getDrankSuccess,
 	  getIngredientsSuccess: getIngredientsSuccess,
 	  editDrankSuccess: editDrankSuccess,
-	  editIngredientSuccess: editIngredientSuccess
+	  editIngredientSuccess: editIngredientSuccess,
+	  deleteDrankSuccess: deleteDrankSuccess
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
