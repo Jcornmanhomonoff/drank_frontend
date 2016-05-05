@@ -48,6 +48,7 @@ const authDrink = require('./auth/drinkApi');
   });
   $('#get-drank').on('click', function (event){
     event.preventDefault();
+    $('.content').html('');
     authDrink.getDrank(authUi.getDrankSuccess, authUi.failure);
     authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure);
   });

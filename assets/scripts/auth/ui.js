@@ -57,13 +57,13 @@ const signUpSuccess = (data) => {
 };
 
 const deleteDrankSuccess = () => {
-  $('.content').html('');
+  $('.content').html(''); //reloads html
   localStorage.clear();
 };
 
 const getDrankSuccess = (data) => {
   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
-  $('.content').append(getDrankDisplayTemplate({
+  $('.content').html(getDrankDisplayTemplate({
     data: data.drinks
   }));
   console.log(data);
@@ -72,7 +72,7 @@ const getDrankSuccess = (data) => {
   // OPENS EDIT DRINK FORM BUTTON
   $('.open-edit-drink').on('click', function(event){
     event.preventDefault();
-    localStorage.setItem('id', $(this).attr('data-drink-id'));
+    localStorage.setItem('id', $(this).attr('data-drink-id')); //sets drink id
     $('#editDrinkModal').modal('show');
   });
   $('.content').on('click', 'button', function (event){  //gets drink id
@@ -87,6 +87,7 @@ const getDrankSuccess = (data) => {
     let data = $('#name').val();
     let id = localStorage.getItem('id'); //gets current drink id
     drinkApi.editDrank(editDrankSuccess, failure, data, id);
+    localStorage.clear();
   });
   $('.delete-drank').on('click', function (event){
     event.preventDefault();
@@ -121,7 +122,6 @@ const editDrankSuccess = (data) => {
   $(".modal-backdrop").hide();
   $('.content').html('');
   drinkApi.getDrank(getDrankSuccess, failure);
-  localStorage.clear();
 };
 
 const editIngredientSuccess = (data) => {
