@@ -369,6 +369,7 @@ webpackJsonp([0],[
 	  console.log(app);
 	  $('#createDrinkModal').modal('hide');
 	  $(".modal-backdrop").hide();
+	  drinkApi.getDrank(getDrankSuccess, failure);
 	};
 
 	var newIngredientSuccess = function newIngredientSuccess(data) {
@@ -388,6 +389,7 @@ webpackJsonp([0],[
 	var deleteDrankSuccess = function deleteDrankSuccess() {
 	  $('.content').html(''); //reloads html
 	  localStorage.clear();
+	  drinkApi.getDrank(getDrankSuccess, failure);
 	};
 
 	var getDrankSuccess = function getDrankSuccess(data) {
@@ -396,34 +398,29 @@ webpackJsonp([0],[
 	    data: data.drinks
 	  }));
 	  console.log(data);
-
-	  // OPENS EDIT DRINK FORM BUTTON
-	  $('.open-edit-drink').on('click', function (event) {
-	    event.preventDefault();
-	    localStorage.setItem('id', $(this).attr('data-drink-id')); //sets drink id
-	    $('#editDrinkModal').modal('show');
-	  });
-	  $('.content').on('click', 'button', function (event) {
-	    //gets drink id
-	    event.preventDefault();
-	    var drinkId = $(event.target).data('drink-id'); //stores current drink id
-	    $('#edit-drink').data('drink-id', drinkId);
-	    console.log(event.target);
-	    console.log('drink-id', drinkId);
-	  });
-	  $('#edit-drink').on('submit', function (event) {
-	    event.preventDefault();
-	    var data = $('#name').val();
-	    var id = localStorage.getItem('id'); //gets current drink id
-	    drinkApi.editDrank(editDrankSuccess, failure, data, id);
-	    localStorage.clear();
-	  });
-	  $('.delete-drank').on('click', function (event) {
-	    event.preventDefault();
-	    var id = localStorage.getItem('id'); //gets current drink id
-	    drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
-	  });
 	};
+
+	// OPENS EDIT DRINK FORM BUTTON
+	//storing id once edit button is clicked and showing modal
+	$('.content').on('click', '.open-edit-drink', function (event) {
+	  //gets drink id
+	  event.preventDefault();
+	  localStorage.setItem('id', $(this).attr('data-drink-id')); //sets drink id
+	  $('#editDrinkModal').modal('show');
+	  console.log(event.target);
+	});
+	$('#edit-drink').on('submit', function (event) {
+	  event.preventDefault();
+	  var data = $('#name').val();
+	  var id = localStorage.getItem('id'); //gets current drink id
+	  drinkApi.editDrank(editDrankSuccess, failure, data, id);
+	  localStorage.clear();
+	});
+	$('.delete-drank').on('click', function (event) {
+	  event.preventDefault();
+	  var id = localStorage.getItem('id'); //gets current drink id
+	  drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
+	});
 
 	var getIngredientsSuccess = function getIngredientsSuccess(data) {
 	  var getDrankDisplayTemplate = __webpack_require__(9);
@@ -447,7 +444,6 @@ webpackJsonp([0],[
 	  console.log(app);
 	  $('#editDrinkModal').modal('hide');
 	  $(".modal-backdrop").hide();
-	  $('.content').html('');
 	  drinkApi.getDrank(getDrankSuccess, failure);
 	};
 
@@ -470,6 +466,9 @@ webpackJsonp([0],[
 	  $('#editDrinkModal').modal('hide');
 	  $('#createDrinkModal').modal('hide');
 	  console.log(app);
+	  $('.content').html('');
+	  $('.open-create-drink').hide();
+	  $('.get-drank').hide();
 	};
 
 	module.exports = {
