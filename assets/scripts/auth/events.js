@@ -25,10 +25,10 @@
 //     event.preventDefault();
 //     authApi.changePassword(authUi.success, authUi.failure, data);
 //   });
+// // };
+//
+//
+//
+// module.exports = {
+//   addHandlers,
 // };
-
-
-
-module.exports = {
-  addHandlers,
-};
