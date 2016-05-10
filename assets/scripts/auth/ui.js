@@ -40,6 +40,7 @@ const newDrinkSuccess = (data) => {
   console.log(app);
   $('#createDrinkModal').modal('hide');
   $(".modal-backdrop").hide();
+  drinkApi.getDrank(getDrankSuccess, failure);
 };
 
 const newIngredientSuccess = (data) => {
@@ -59,6 +60,7 @@ const signUpSuccess = (data) => {
 const deleteDrankSuccess = () => {
   $('.content').html(''); //reloads html
   localStorage.clear();
+  drinkApi.getDrank(getDrankSuccess, failure);
 };
 
 const getDrankSuccess = (data) => {
@@ -67,20 +69,16 @@ const getDrankSuccess = (data) => {
     data: data.drinks
   }));
   console.log(data);
+};
 
 
   // OPENS EDIT DRINK FORM BUTTON
-  $('.open-edit-drink').on('click', function(event){
+  //storing id once edit button is clicked and showing modal
+  $('.content').on('click', '.open-edit-drink', function (event){  //gets drink id
     event.preventDefault();
     localStorage.setItem('id', $(this).attr('data-drink-id')); //sets drink id
     $('#editDrinkModal').modal('show');
-  });
-  $('.content').on('click', 'button', function (event){  //gets drink id
-    event.preventDefault();
-    let drinkId = $(event.target).data('drink-id'); //stores current drink id
-    $('#edit-drink').data('drink-id', drinkId);
     console.log(event.target);
-    console.log('drink-id', drinkId);
   });
   $('#edit-drink').on('submit', function (event){
     event.preventDefault();
@@ -94,7 +92,6 @@ const getDrankSuccess = (data) => {
     let id = localStorage.getItem('id'); //gets current drink id
     drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
   });
-};
 
 const getIngredientsSuccess = (data) => {
   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
@@ -120,7 +117,6 @@ const editDrankSuccess = (data) => {
   console.log(app);
   $('#editDrinkModal').modal('hide');
   $(".modal-backdrop").hide();
-  $('.content').html('');
   drinkApi.getDrank(getDrankSuccess, failure);
 };
 
@@ -143,6 +139,9 @@ const signOutSuccess = () => {
   $('#editDrinkModal').modal('hide');
   $('#createDrinkModal').modal('hide');
   console.log(app);
+  $('.content').html('');
+  $('.open-create-drink').hide();
+  $('.get-drank').hide();
 };
 
 
