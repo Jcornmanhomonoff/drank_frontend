@@ -51,9 +51,9 @@ const deleteDrank = (success, failure, drinkId) => {
     headers: {
       Authorization: 'Token token='+ app.token,
     },
-    })
-    .done(success)
-    .fail(failure);
+  })
+  .done(success)
+  .fail(failure);
 };
 
 

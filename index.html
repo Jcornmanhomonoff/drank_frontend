@@ -1,269 +1,272 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Drank</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">`
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
+
+<head>
+  <title>Drank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
 
 
-<!--START NAV BAR-->
-      <nav class="navbar navbar-default nav-box">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">DRANK</a>
-          </div>
+  <!--START NAV BAR-->
+  <!-- <nav class="navbar navbar-default nav-box">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="#">DRANK</a>
+      </div> -->
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+ -->
 
-
-
-                <!-- SIGN UP MODAL -->
-                    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Let's get this party started!</h4>
-                          </div>
-                          <div class="modal-body">
-                  <!--SIGN UP FORM-->
-                            <form id='sign-up' class="form-horizontal">
-                              <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                  <input type="email" class="form-control" id="inputEmail3" name="credentials[email]" placeholder="Email">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                  <input type="password" class="form-control" id="inputPassword3" name="credentials[password]" placeholder="Password">
-                                </div>
-                              </div>
-                  <!--CONTINUATION OF POPUP-->
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Sign Up</button>
-                          </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div></li>
-
-
-            <!-- SIGN OUT BUTTON-->
-              <li id="sign-out">
-                <a href="#">Gotta go!</a>
-              </li>
-
-
-                <!-- SIGN IN MODAL -->
-                    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Welcome to the party!</h4>
-                          </div>
-                          <div class="modal-body">
-                  <!--SIGN IN FORM-->
-                            <form id='sign-in' class="form-horizontal">
-                              <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                  <input type="email" class="form-control" id="inputEmail3" name="credentials[email]" placeholder="Email">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                  <input type="password" class="form-control" id="inputPassword3" name="credentials[password]" placeholder="Password">
-                                </div>
-                              </div>
-                  <!--CONTINUATION OF POPUP-->
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Sign In</button>
-                          </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-
-              <!-- CHANGE PASSWORD MODAL -->
-                  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Make a new Secret!</h4>
-                        </div>
-                        <div class="modal-body">
-                <!--CHANGE PASSWORD FORM-->
-                          <form id='change-password' class="form-horizontal">
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-2 control-label">Old Password</label>
-                              <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" name="passwords[old]" placeholder="Password">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-2 control-label">New Password</label>
-                              <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" name="passwords[new]" placeholder="Password">
-                              </div>
-                            </div>
-                <!--CONTINUATION OF POPUP-->
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Change Password</button>
-                        </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+          <!-- SIGN OUT BUTTON-->
+          <!-- <li id="sign-out">
+            <a href="#">Gotta go!</a>
+          </li> -->
 
           <!--DROP DOWN-->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Let's do this! <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li class="open-sign-up"><a href="#">Sign Up</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="open-sign-in"><a href="#">Sign In</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="open-change-password"><a href="#">Change Password</a></li>
-                </ul>
-              </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Let's do this! <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="open-sign-up"><a href="#">Sign Up</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="open-sign-in"><a href="#">Sign In</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="open-change-password"><a href="#">Change Password</a></li>
             </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-<!--END NAV BAR -->
-
-
-<button type="button" class="btn btn-default open-create-drink" data-dismiss="modal">Mix Up a Drink</button>
-
-<!--CREATE DRINK MODAL-->
-    <div class="modal fade" id="createDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">What's in your cocktail?</h4>
-          </div>
-          <div class="modal-body">
-  <!--CREATE DRINK FORM-->
-            <form id='create-drink' class="form-horizontal">
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Cocktail</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[name]" placeholder="Margarita">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Alcohol</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[alcohol]" placeholder="2 oz Tequila">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Mixers</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Suggestions</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[suggestion]" placeholder="Salted rim">
-                </div>
-              </div>
-  <!--CONTINUATION OF POPUP-->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add it to the list!</button>
-          </div>
-          </form>
-        </div>
+          </li>
+        </ul>
       </div>
-    </div>
-<!--END CREATE DRINK MODAL-->
+  </nav> -->
+  <!--END NAV BAR -->
 
-
-
-
-
-<!--EDIT DRINK MODAL-->
-    <div class="modal fade" id="editDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Jazz up your drink!</h4>
-          </div>
-          <div class="modal-body">
-  <!--EDIT DRINK FORM-->
-            <form id='edit-drink' class="form-horizontal">
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Cocktail</label>
-                  <input type="text" class="form-control" id="name" name="drinks[name]" placeholder="Margarita">
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Alcohol</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[alcohol]" placeholder="2 oz Tequila">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Mixers</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Suggestions</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="cocktailName" name="drinks[suggestion]" placeholder="Salted rim">
-                </div>
-              </div>
-  <!--CONTINUATION OF POPUP-->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Update Drink!</button>
-            <button type="button" class="btn btn-primary delete-drank">Nasty Drank!</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-<!--END EDIT DRINK MODAL-->
-
-
-
-<div class="content">
+<div class="nav-strip">
+  <ul class="auth-menu">
+    <li class="open-sign-up"><a href="#">Sign Up</a></li>
+    <li class="open-sign-in"><a href="#">Sign In</a></li>
+  </ul>
 </div>
-<!--GET DRINK-->
-<button type="button" id="get-drank" class="btn btn-default get-drank" data-dismiss="modal">What Drinks Do I have?</button>
-<!--END GET DRINK-->
 
-    </body>
+
+  <!--MODALS-->
+  <!-- SIGN UP MODAL -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Let's get this party started!</h4>
+        </div>
+        <div class="modal-body">
+          <!--SIGN UP FORM-->
+          <form id='sign-up' class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+              </div>
+            </div>
+          </form>
+          <!--CONTINUATION OF POPUP-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END OF SIGN UP MODAL-->
+
+  <!-- SIGN IN MODAL -->
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Welcome to the party!</h4>
+        </div>
+        <div class="modal-body">
+          <!--SIGN IN FORM-->
+          <form id='sign-in' class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+              </div>
+            </div>
+          </form>
+          <!--CONTINUATION OF POPUP-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END OF SIGN IN MODAL-->
+
+  <!-- CHANGE PASSWORD MODAL -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Make a new Secret!</h4>
+        </div>
+        <div class="modal-body">
+          <!--CHANGE PASSWORD FORM-->
+          <form id='change-password' class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Old Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" name="passwords[old]" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">New Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" name="passwords[new]" placeholder="Password">
+              </div>
+            </div>
+          </form>
+          <!--CONTINUATION OF POPUP-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Change Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END OF CHANGE PW MODAL-->
+
+  <button type="button" class="btn btn-default open-create-drink" data-dismiss="modal">Mix Up a Drink</button>
+
+  <!--CREATE DRINK MODAL-->
+  <div class="modal fade" id="createDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">What's in your cocktail?</h4>
+        </div>
+        <div class="modal-body">
+          <!--CREATE DRINK FORM-->
+          <form id='create-drink' class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Cocktail</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[name]" placeholder="Margarita">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Alcohol</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[alcohol]" placeholder="2 oz Tequila">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Mixers</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Suggestions</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[suggestion]" placeholder="Salted rim">
+              </div>
+            </div>
+          </form>
+          <!--CONTINUATION OF POPUP-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add it to the list!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END CREATE DRINK MODAL-->
+
+
+
+
+
+  <!--EDIT DRINK MODAL-->
+  <div class="modal fade" id="editDrinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Jazz up your drink!</h4>
+        </div>
+        <div class="modal-body">
+          <!--EDIT DRINK FORM-->
+          <form id='edit-drink' class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Cocktail</label>
+              <input type="text" class="form-control" id="name" name="drinks[name]" placeholder="Margarita">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Alcohol</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[alcohol]" placeholder="2 oz Tequila">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Mixers</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[mixer]" placeholder="1 oz Lime juice, 1.5 oz Cointreau">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Suggestions</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="drinks[suggestion]" placeholder="Salted rim">
+              </div>
+            </div>
+          </form>
+          <!--CONTINUATION OF POPUP-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update Drink!</button>
+          <button type="button" class="btn btn-primary delete-drank">Nasty Drank!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END EDIT DRINK MODAL-->
+
+
+
+  <div class="content">
+  </div>
+  <!--GET DRINK-->
+  <button type="button" id="get-drank" class="btn btn-default get-drank" data-dismiss="modal">What Drinks Do I have?</button>
+  <!--END GET DRINK-->
+
+</body>
+
 </html>

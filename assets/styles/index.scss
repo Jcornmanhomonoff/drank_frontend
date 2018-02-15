@@ -1,10 +1,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+@import 'custom-bootstrap';
+@import 'navbar';
+
 body{
-  background-image: url(http://punchdrink.com/wp-content/uploads/2016/03/Article-Vodka-Cocktail-Recipe-Duke-Martini-London-Giuseppe-Gonzalez-Suffolk-Arms-Espresso-Martini-NYC.jpg);
-  background-repeat: no-repeat;
+  background: url("https://hips.hearstapps.com/esq.h-cdn.co/assets/17/08/1487694308-moscow-mule.jpg") no-repeat center center fixed;
   background-size: cover;
+  height: 100%;
 }
 
 .nav-box{
