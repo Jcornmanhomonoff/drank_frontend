@@ -1,5 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans:100,400,700');
 
 @import 'custom-bootstrap';
 @import 'landing-page';
@@ -10,6 +12,14 @@ body{
   height: 100%;
   color: white;
   font-size: 1.5em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: lowercase;
+  letter-spacing: 10px;
+  border-bottom: 3px solid white;
+  padding-bottom: 10px;
 }
 
 .nav-box{
