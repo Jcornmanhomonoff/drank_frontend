@@ -2,12 +2,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 @import 'custom-bootstrap';
-@import 'navbar';
+@import 'landing-page';
 
 body{
   background: url("https://hips.hearstapps.com/esq.h-cdn.co/assets/17/08/1487694308-moscow-mule.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
+  color: white;
+  font-size: 1.5em;
 }
 
 .nav-box{

@@ -46,13 +46,57 @@
   </nav> -->
   <!--END NAV BAR -->
 
-<div class="nav-strip">
+<!-- vertical centered large buttons -->
+<!-- <div class="nav-strip">
   <ul class="auth-menu">
     <li class="open-sign-up"><a href="#">Sign Up</a></li>
     <li class="open-sign-in"><a href="#">Sign In</a></li>
   </ul>
-</div>
+</div> -->
 
+<div class="row">
+  <div class="col-md-6">
+    Drank
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-sm-6">
+        <button class="auth-btn open-sign-up"><a href="#">Sign Up</a></button>
+      </div>
+      <div class="col-sm-6">
+        <button class="auth-btn open-sign-in"><a href="#">Sign In</a></button>
+      </div>
+    </div>
+    <div class="row">
+      <!--SIGN UP FORM-->
+      <form id='sign-up' class="form-horizontal">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <input type="text" class="form-control" data-name="first-name" placeholder="First name">
+            </div>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" data-name="last-name" placeholder="Last name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
+            </div>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-offset-6 col-sm-6">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
   <!--MODALS-->
   <!-- SIGN UP MODAL -->
