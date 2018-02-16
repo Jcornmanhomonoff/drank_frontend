@@ -7,7 +7,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'landing-page';
 
 body{
-  background: url("https://hips.hearstapps.com/esq.h-cdn.co/assets/17/08/1487694308-moscow-mule.jpg") no-repeat center center fixed;
+  background: url('~/public/moscow-mule.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   color: white;
@@ -19,7 +19,8 @@ h1 {
   text-transform: lowercase;
   letter-spacing: 10px;
   border-bottom: 3px solid white;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  margin-top: 0;
 }
 
 .nav-box{
