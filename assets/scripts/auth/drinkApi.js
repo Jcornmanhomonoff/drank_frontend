@@ -5,8 +5,8 @@
 //   Math.random() > 0.5 ? success('in signUp') : failure(data);
 // };
 
-const app = require('../app-data.js');
-const ui = require('./ui.js');
+const app = require('../app-data.js')
+const ui = require('./ui.js')
 
 
 
@@ -19,13 +19,13 @@ const getDrank = (success, failure) => {
     },
   })
   .done(success)
-  .fail(failure);
-};
+  .fail(failure)
+}
 
 
 const editDrank = (success, failure, data, drinkId) => {
-  console.log(drinkId);
-  console.log(data);
+  console.log(drinkId)
+  console.log(data)
   $.ajax({
     method:'PATCH',
     url: app.api + 'drinks/' + drinkId,
@@ -39,12 +39,12 @@ const editDrank = (success, failure, data, drinkId) => {
     }
     })
     .done(success)
-    .fail(failure);
-};
+    .fail(failure)
+}
 
 
 const deleteDrank = (success, failure, drinkId) => {
-  console.log(drinkId);
+  console.log(drinkId)
   $.ajax({
     method:'DELETE',
     url: app.api + 'drinks/' + drinkId,
@@ -53,12 +53,12 @@ const deleteDrank = (success, failure, drinkId) => {
     },
   })
   .done(success)
-  .fail(failure);
-};
+  .fail(failure)
+}
 
 
 module.exports = {
   getDrank,
   editDrank,
   deleteDrank,
-};
+}
