@@ -34,71 +34,71 @@ const changePasswordSuccess = (data) => {
 };
 
 const newDrinkSuccess = (data) => {
-  // console.log(data);
-  // debugger;
-  app.drinkId = data.drink.id;
-  console.log(app);
-  $('#createDrinkModal').modal('hide');
-  $(".modal-backdrop").hide();
-  drinkApi.getDrank(getDrankSuccess, failure);
-};
+  // console.log(data)
+  // debugger
+  app.drinkId = data.drink.id
+  console.log(app)
+  $('#createDrinkModal').modal('hide')
+  $(".modal-backdrop").hide()
+  drinkApi.getDrank(getDrankSuccess, failure)
+}
 
 const newIngredientSuccess = (data) => {
-  app.ingredientId = data.id;
-  console.log(app);
-  $('#createDrinkModal').modal('hide');
-  $(".modal-backdrop").hide();
-};
+  app.ingredientId = data.id
+  console.log(app)
+  $('#createDrinkModal').modal('hide')
+  $(".modal-backdrop").hide()
+}
 
 const signUpSuccess = (data) => {
-  console.log(success);
-  $('#signUpModal').modal('hide');
-  $(".modal-backdrop").hide();
-  console.log(data);
-};
+  console.log(success)
+  $('#signUpModal').modal('hide')
+  $(".modal-backdrop").hide()
+  console.log(data)
+}
 
 const deleteDrankSuccess = () => {
-  $('.content').html(''); //reloads html
-  localStorage.clear();
-  drinkApi.getDrank(getDrankSuccess, failure);
-};
+  $('.content').html('') //reloads html
+  localStorage.clear()
+  drinkApi.getDrank(getDrankSuccess, failure)
+}
 
 const getDrankSuccess = (data) => {
-  let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
+  let getDrankDisplayTemplate = require('./templates/drank-display.handlebars')
   $('.content').html(getDrankDisplayTemplate({
     data: data.drinks
-  }));
-  console.log(data);
-};
+  }))
+  console.log(data)
+}
 
 
   // OPENS EDIT DRINK FORM BUTTON
   //storing id once edit button is clicked and showing modal
   $('.content').on('click', '.open-edit-drink', function (event){  //gets drink id
-    event.preventDefault();
-    localStorage.setItem('id', $(this).attr('data-drink-id')); //sets drink id
-    $('#editDrinkModal').modal('show');
-    console.log(event.target);
-  });
+    event.preventDefault()
+    localStorage.setItem('id', $(this).attr('data-drink-id')) //sets drink id
+    $('#editDrinkModal').modal('show')
+    console.log(event.target)
+  })
   $('#edit-drink').on('submit', function (event){
-    event.preventDefault();
-    let data = $('#name').val();
-    let id = localStorage.getItem('id'); //gets current drink id
-    drinkApi.editDrank(editDrankSuccess, failure, data, id);
-    localStorage.clear();
-  });
+    event.preventDefault()
+    let data = $('#name').val()
+    let id = localStorage.getItem('id') //gets current drink id
+    drinkApi.editDrank(editDrankSuccess, failure, data, id)
+    localStorage.clear()
+  })
   $('.delete-drank').on('click', function (event){
-    event.preventDefault();
-    let id = localStorage.getItem('id'); //gets current drink id
-    drinkApi.deleteDrank(deleteDrankSuccess, failure, id);
-  });
+    event.preventDefault()
+    let id = localStorage.getItem('id') //gets current drink id
+    drinkApi.deleteDrank(deleteDrankSuccess, failure, id)
+  })
 
 const getIngredientsSuccess = (data) => {
-  let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
+  let getDrankDisplayTemplate = require('./templates/drank-display.handlebars')
   $('.content').append(getDrankDisplayTemplate({
     ingredients: data.ingredients
-  }));
-};
+  }))
+}
 
 // $('#exampleModal').on('show.bs.modal', function (event) {
 //   var button = $(event.relatedTarget) // Button that triggered the modal
@@ -108,41 +108,41 @@ const getIngredientsSuccess = (data) => {
 //   var modal = $(this)
 //   modal.find('.modal-title').text('New message to ' + recipient)
 //   modal.find('.modal-body input').val(recipient)
-// });
+// })
 
 
 
 const editDrankSuccess = (data) => {
-  app.drinkId = data.drink.id;
-  console.log(app);
-  $('#editDrinkModal').modal('hide');
-  $(".modal-backdrop").hide();
-  drinkApi.getDrank(getDrankSuccess, failure);
-};
+  app.drinkId = data.drink.id
+  console.log(app)
+  $('#editDrinkModal').modal('hide')
+  $(".modal-backdrop").hide()
+  drinkApi.getDrank(getDrankSuccess, failure)
+}
 
 const editIngredientSuccess = (data) => {
-  app.ingredientId = data.id;
-  console.log(app.ingredientId);
-  console.log(app);
-  $('#editDrinkModal').modal('hide');
-  $(".modal-backdrop").hide();
-  localStorage.clear();
-};
+  app.ingredientId = data.id
+  console.log(app.ingredientId)
+  console.log(app)
+  $('#editDrinkModal').modal('hide')
+  $(".modal-backdrop").hide()
+  localStorage.clear()
+}
 
 // const deleteDrankSuccess = () => {
-//   $('#editDrinkModal').modal('hide');
-//   console.log(app);
+//   $('#editDrinkModal').modal('hide')
+//   console.log(app)
 // }
 
 const signOutSuccess = () => {
-  app.user = null;
-  $('#editDrinkModal').modal('hide');
-  $('#createDrinkModal').modal('hide');
-  console.log(app);
-  $('.content').html('');
-  $('.open-create-drink').hide();
-  $('.get-drank').hide();
-};
+  app.user = null
+  $('#editDrinkModal').modal('hide')
+  $('#createDrinkModal').modal('hide')
+  console.log(app)
+  $('.content').html('')
+  $('.open-create-drink').hide()
+  $('.get-drank').hide()
+}
 
 
 
@@ -161,4 +161,4 @@ module.exports = {
   editDrankSuccess,
   editIngredientSuccess,
   deleteDrankSuccess,
-};
+}
