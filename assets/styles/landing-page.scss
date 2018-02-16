@@ -1,3 +1,11 @@
+.landing-page {
+  background: url('~/public/moscow-mule.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 70px;
+  overflow: hidden;
+}
+
 .landing-copy{
   font-size: 5em;
   font-family: 'Anton', sans-serif;
@@ -12,8 +20,11 @@
   padding: 15px 0;
   width: 100%;
   margin-bottom: 40px;
+  &:focus {
+    outline: 0;
+  }
   &:hover{
-    background: rgba(255, 255, 255, 0.3);
+    background: $clear-white;
   }
   a{
     color: white;
@@ -21,7 +32,7 @@
   }
 }
 
-#sign-up {
+#sign-up, #sign-in {
   input {
     background: none;
     border-top: none;
@@ -47,9 +58,16 @@
     padding: 17px 0 13px;
     width: 100%;
     margin-top: 40px;
-    &:hover{
-      background: rgba(255, 255, 255, 0.3);
+    &:focus {
+      outline: 0;
+    }
+    &:hover {
+      background: $clear-white;
       color: white;
     }
   }
+}
+
+.active.open-sign-up, .active.open-sign-in {
+  background: $clear-white;
 }

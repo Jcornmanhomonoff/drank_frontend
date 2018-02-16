@@ -3,17 +3,17 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Anton');
 @import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans:100,400,700');
 
+@import 'colors';
 @import 'custom-bootstrap';
 @import 'landing-page';
+@import 'create-drinks-section';
 
 body{
-  background: url('~/public/moscow-mule.jpg') no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
   color: white;
   font-size: 1.5em;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 h1 {
   font-family: 'Josefin Sans', sans-serif;
   text-transform: lowercase;

@@ -1,0 +1,51 @@
+.create-drinks-section {
+  background: url('~/public/cocktails_dreams.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.create-drink-title {
+  margin-top: 120px;
+  font-size: 3em;
+  font-weight: 700;
+  color: $brown;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#create-drink {
+  text-transform: uppercase;
+  font-size: 20px;
+  label {
+    padding-top: 14px;
+  }
+  input {
+    background: none;
+    border: 3px solid white;
+    border-radius: 0;
+    padding: 25px 20px 20px;
+    color: white;
+    font-size: 20px;
+    &::placeholder {
+      color: white;
+      font-size: 20px;
+    }
+  }
+  button {
+    background: white;
+    border-radius: 0;
+    color: grey;
+    border: 5px solid white;
+    font-size: 20px;
+    padding: 12px 0 8px;
+    width: 100%;
+    margin-top: 40px;
+    &:focus {
+      outline: 0;
+    }
+    &:hover {
+      background: $clear-white;
+      color: white;
+    }
+  }
+}
