@@ -1,37 +1,54 @@
-'use strict';
+'use strict'
 
-const app = require('../app-data.js');
-// const authApi = require('./api.js');
-const getFormFields = require('../../../lib/get-form-fields');
-const drinkApi = require('./drinkApi');
+const app = require('../app-data.js')
+// const authApi = require('./api.js')
+const getFormFields = require('../../../lib/get-form-fields')
+const drinkApi = require('./drinkApi')
 
-console.log(app);
-console.log(drinkApi);
+console.log(app)
+console.log(drinkApi)
 
 const success = (data) => {
-  console.log(data);
-};
+  console.log(data)
+}
 
 const failure = (error) => {
-  console.error(error);
-};
+  console.error(error)
+}
+
+const signUpSuccess = (data) => {
+  console.log(success)
+  $('#signUpModal').modal('hide')
+  $(".modal-backdrop").hide()
+  console.log(data)
+}
 
 const signInSuccess = (data) => {
-  app.token = data.user.token;
-  app.id = data.user.id;
-  console.log(app);
-  $('#signInModal').modal('hide');
-  $(".modal-backdrop").hide();
-  $('.open-create-drink').show();
-  $('.get-drank').show();
-};
+  app.token = data.user.token
+  app.id = data.user.id
+  console.log(app)
+  $('#signInModal').modal('hide')
+  $(".modal-backdrop").hide()
+  $('.open-create-drink').show()
+  $('.get-drank').show()
+}
 
 const changePasswordSuccess = (data) => {
-  console.log(app);
-  $('#changePasswordModal').modal('hide');
-  $(".modal-backdrop").hide();
-  console.log(data);
-};
+  console.log(app)
+  $('#changePasswordModal').modal('hide')
+  $(".modal-backdrop").hide()
+  console.log(data)
+}
+
+const signOutSuccess = () => {
+  app.user = null
+  $('#editDrinkModal').modal('hide')
+  $('#createDrinkModal').modal('hide')
+  console.log(app)
+  $('.content').html('')
+  $('.open-create-drink').hide()
+  $('.get-drank').hide()
+}
 
 const newDrinkSuccess = (data) => {
   // console.log(data)
@@ -48,13 +65,6 @@ const newIngredientSuccess = (data) => {
   console.log(app)
   $('#createDrinkModal').modal('hide')
   $(".modal-backdrop").hide()
-}
-
-const signUpSuccess = (data) => {
-  console.log(success)
-  $('#signUpModal').modal('hide')
-  $(".modal-backdrop").hide()
-  console.log(data)
 }
 
 const deleteDrankSuccess = () => {
@@ -133,16 +143,6 @@ const editIngredientSuccess = (data) => {
 //   $('#editDrinkModal').modal('hide')
 //   console.log(app)
 // }
-
-const signOutSuccess = () => {
-  app.user = null
-  $('#editDrinkModal').modal('hide')
-  $('#createDrinkModal').modal('hide')
-  console.log(app)
-  $('.content').html('')
-  $('.open-create-drink').hide()
-  $('.get-drank').hide()
-}
 
 
 

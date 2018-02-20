@@ -1,7 +1,16 @@
-{{#each data}}
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    {{this.name}}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Cocktail Menu</h2>
+    </div>
+  </div>
+  <div class="row">
+    {{#each data}}
+    <div class="col-md-4">
+      <div class="drink">
+        {{this.name}}
+      </div>
+    </div>
+    {{/each}}
   </div>
 </div>
-{{/each}}
