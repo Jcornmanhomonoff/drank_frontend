@@ -77,7 +77,7 @@ const deleteDrankSuccess = () => {
 const getDrankSuccess = (data) => {
   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars')
   $('.content').html(getDrankDisplayTemplate({
-    data: data.drinks
+    drinks: data.drinks
   }))
   console.log(data)
 }

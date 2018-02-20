@@ -4,7 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const app = require('../app-data')
 const authApi = require('./api')
 const authUi = require('./ui')
-// const drinkApi = require('./drinkApi')
+const showDrankTemplate = require('./templates/drank-content.hbs')
 
 const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
@@ -43,6 +43,25 @@ const addHandlers = () => {
     authDrink.getDrank(authUi.getDrankSuccess, authUi.failure)
     authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure)
   })
+  $('.content').on('click', '.drink', onShowDrank)
+}
+
+const onShowDrank = function (event) {
+  console.log('here')
+    event.preventDefault()
+    // get data-id attribute from button
+    const drankId = event.target.id
+    console.log(drankId)
+    // get book with matching id
+    console.log(app)
+    // const drank = app.drinks.find(function (drink) {
+    //   console.log(app)
+    //   // return book.id.toString() === bookId
+    // })
+    // console.log(book)
+    // const showModalHtml = showModalsTemplate({ book })
+    // $('#modal-content').html(showModalHtml)
+    // $('#' + bookId).modal('show')
 }
 
 module.exports = {

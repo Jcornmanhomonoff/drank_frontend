@@ -1,6 +1,7 @@
 .drink-list-section {
   background: url('~/public/wood_texture.jpg') no-repeat center center fixed;
   padding: 70px 0 50px;
+  height: 100vh;
   h2 {
     text-align: center;
     font-size: 3em;
@@ -9,11 +10,26 @@
   }
 }
 
+.scrollable {
+  overflow-y: scroll;
+  height: 500px;
+  background: $clear-white;
+}
+
 .drink {
-  font-size: 3em;
+  color: $brown;
+  font-size: 2em;
   text-transform: uppercase;
-  border: 3px solid white;
   text-align: center;
   margin: 30px;
   padding: 15px 0 5px;
+}
+
+.sexy-line {
+  display:block;
+  border:none;
+  color:white;
+  height:3px;
+  background:$brown;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($brown), to($clear-white));
 }

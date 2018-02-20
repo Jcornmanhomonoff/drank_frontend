@@ -4,7 +4,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans:100,400,700');
 
 @import 'colors';
-@import 'custom-bootstrap';
 @import 'landing-page';
 @import 'create-drinks-section';
 @import 'drink-list-section';
@@ -46,3 +45,7 @@ h1 {
   border: 0;
   color: #fff;
 }
+
+// .bottom-border {
+//   border-bottom: 3px solid white;
+// }
