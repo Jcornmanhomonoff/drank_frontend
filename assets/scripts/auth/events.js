@@ -1,9 +1,10 @@
-'use strict';
+'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields');
+const getFormFields = require('../../../lib/get-form-fields')
 const app = require('../app-data')
-const authApi = require('./api');
-const authUi = require('./ui');
+const authApi = require('./api')
+const authUi = require('./ui')
+// const drinkApi = require('./drinkApi')
 
 const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {

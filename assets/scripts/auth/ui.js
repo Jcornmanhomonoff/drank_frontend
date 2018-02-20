@@ -27,6 +27,7 @@ const signInSuccess = (data) => {
   app.token = data.user.token
   app.id = data.user.id
   console.log(app)
+  drinkApi.getDrank(getDrankSuccess, failure)
   $('#signInModal').modal('hide')
   $(".modal-backdrop").hide()
   $('.open-create-drink').show()
