@@ -67,12 +67,6 @@ const getDrankSuccess = (data) => {
   store.drinks = data.drinks
 }
 
-$('.delete-drank').on('click', function (event){
-  event.preventDefault()
-  let id = localStorage.getItem('id') //gets current drink id
-  drinkApi.deleteDrank(deleteDrankSuccess, failure, id)
-})
-
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
   drinkApi.getDrank(getDrankSuccess, failure)

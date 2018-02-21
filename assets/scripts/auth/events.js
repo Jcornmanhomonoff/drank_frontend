@@ -60,16 +60,24 @@ let drinkId = ''
 const onOpenEditDrank = function (event) {
   event.preventDefault()
   drinkId = $(this).data('id')
-  const drinkVal = $(this).siblings().html()
-  $(this).siblings().replaceWith("<form class='update-drink'><input value='" + drinkVal + "'></input><br><button class='drink-btn' type='submit'>Submit</button></form>")
+  const drinkVal = $(this).siblings("h2").html()
+  $(this).siblings("h2").replaceWith("<form class='update-drink'><input value='" + drinkVal + "'></input><br><button class='drink-btn' type='submit'>Submit</button></form>")
   $('.edit-drink').hide()
   return drinkId
 }
 
 const onEditDrank = function (event) {
   event.preventDefault()
-  const drinkName = $(this).siblings().val()
+  const drinkName = $(this).find("input").val()
   drinkApi.editDrank(ui.editDrankSuccess, ui.failure, drinkName, drinkId)
+}
+
+const onDeleteDrank = function (event) {
+  event.preventDefault()
+  // get id from clicked item
+  const drankId = $(this).data('id')
+  console.log(drankId)
+  drinkApi.deleteDrank(ui.deleteDrankSuccess, ui.failure, drankId)
 }
 
 const addHandlers = () => {
@@ -81,6 +89,7 @@ const addHandlers = () => {
   $('.content').on('click', '.drink', onShowDrank)
   $('.content').on('click', '.edit-drink', onOpenEditDrank)
   $('.content').on('submit', '.update-drink', onEditDrank)
+  $('.content').on('click', '.delete-drink', onDeleteDrank)
 }
 
 module.exports = {
