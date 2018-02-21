@@ -36,14 +36,8 @@ const addHandlers = () => {
     let data = getFormFields(this)
     console.log(data)
     data.drinks.user_id = app.id
-    authApi.newDrink(ui.newDrinkSuccess, ui.failure, data)
+    drinkApi.newDrink(ui.newDrinkSuccess, ui.failure, data)
     authApi.newIngredient(ui.newIngredientSuccess, ui.failure, data)
-  })
-  $('#get-drank').on('click', function (event){
-    event.preventDefault()
-    $('.content').html('')
-    authDrink.getDrank(ui.getDrankSuccess, ui.failure)
-    authApi.getIngredients(ui.getIngredientsSuccess, ui.failure)
   })
   $('.content').on('click', '.drink', onShowDrank)
   $('.content').on('click', '.edit-drink', onOpenEditDrank)

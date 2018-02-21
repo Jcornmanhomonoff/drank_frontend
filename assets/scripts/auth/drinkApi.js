@@ -1,14 +1,24 @@
 'use strict';
 
-//written function to test if all of your code works
-// const signUp = (success, failure, data) => {
-//   Math.random() > 0.5 ? success('in signUp') : failure(data);
-// };
-
 const app = require('../app-data.js')
 const ui = require('./ui.js')
 
-
+const newDrink = (success, failure, data) => {
+  $.ajax({
+    method:'POST',
+    url: app.api + 'drinks',
+    headers: {
+      Authorization: 'Token token='+ app.token,
+    },
+    data: {
+      "drink": {
+        "name": data.drinks.name
+      }
+    },
+  })
+  .done(success)
+  .fail(failure)
+}
 
 const getDrank = (success, failure) => {
   $.ajax({
@@ -58,6 +68,7 @@ const deleteDrank = (success, failure, drinkId) => {
 
 
 module.exports = {
+  newDrink,
   getDrank,
   editDrank,
   deleteDrank,

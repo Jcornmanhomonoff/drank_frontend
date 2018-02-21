@@ -49,11 +49,9 @@ h1 {
   width: 100%;
   margin-top: 40px;
   text-transform: uppercase;
-  &:focus {
-    outline: 0;
-  }
-  &:hover {
-    background: $clear-white;
-    color: white;
+  &:hover, &:active, &:focus, &:visited {
+    outline: 0 !important;
+    background: $clear-white !important;
+    border-color: white !important;
   }
 }

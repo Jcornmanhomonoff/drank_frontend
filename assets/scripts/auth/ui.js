@@ -1,13 +1,9 @@
 'use strict'
 
 const app = require('../app-data.js')
-// const authApi = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
 const store = require('../store')
-
-console.log(app)
-console.log(drinkApi)
 
 const success = (data) => {
   console.log(data)
@@ -19,8 +15,6 @@ const failure = (error) => {
 
 const signUpSuccess = (data) => {
   console.log(success)
-  $('#signUpModal').modal('hide')
-  $(".modal-backdrop").hide()
   console.log(data)
 }
 
@@ -34,7 +28,6 @@ const signInSuccess = (data) => {
   $('html, body').animate({
     scrollTop: $('.create-drinks-section').offset().top
   }, 1000);
-  $('.get-drank').show()
 }
 
 const changePasswordSuccess = (data) => {
@@ -50,24 +43,13 @@ const signOutSuccess = () => {
   $('#createDrinkModal').modal('hide')
   console.log(app)
   $('.content').html('')
-  $('.get-drank').hide()
 }
 
 const newDrinkSuccess = (data) => {
-  // console.log(data)
-  // debugger
   app.drinkId = data.drink.id
-  console.log(app)
   $('#createDrinkModal').modal('hide')
   $(".modal-backdrop").hide()
   drinkApi.getDrank(getDrankSuccess, failure)
-}
-
-const newIngredientSuccess = (data) => {
-  app.ingredientId = data.id
-  console.log(app)
-  $('#createDrinkModal').modal('hide')
-  $(".modal-backdrop").hide()
 }
 
 const deleteDrankSuccess = () => {
@@ -85,53 +67,16 @@ const getDrankSuccess = (data) => {
   store.drinks = data.drinks
 }
 
-  $('.delete-drank').on('click', function (event){
-    event.preventDefault()
-    let id = localStorage.getItem('id') //gets current drink id
-    drinkApi.deleteDrank(deleteDrankSuccess, failure, id)
-  })
-
-const getIngredientsSuccess = (data) => {
-  let getDrankDisplayTemplate = require('./templates/drank-display.handlebars')
-  $('.content').append(getDrankDisplayTemplate({
-    ingredients: data.ingredients
-  }))
-}
-
-// $('#exampleModal').on('show.bs.modal', function (event) {
-//   var button = $(event.relatedTarget) // Button that triggered the modal
-//   var recipient = button.data('whatever') // Extract info from data-* attributes
-//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-//   var modal = $(this)
-//   modal.find('.modal-title').text('New message to ' + recipient)
-//   modal.find('.modal-body input').val(recipient)
-// })
-
-
+$('.delete-drank').on('click', function (event){
+  event.preventDefault()
+  let id = localStorage.getItem('id') //gets current drink id
+  drinkApi.deleteDrank(deleteDrankSuccess, failure, id)
+})
 
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
-  console.log(app)
-  $('#editDrinkModal').modal('hide')
-  $(".modal-backdrop").hide()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
-
-const editIngredientSuccess = (data) => {
-  app.ingredientId = data.id
-  console.log(app.ingredientId)
-  console.log(app)
-  $('#editDrinkModal').modal('hide')
-  $(".modal-backdrop").hide()
-  localStorage.clear()
-}
-
-// const deleteDrankSuccess = () => {
-//   $('#editDrinkModal').modal('hide')
-//   console.log(app)
-// }
-
 
 
 module.exports = {
@@ -142,11 +87,7 @@ module.exports = {
   signUpSuccess,
   changePasswordSuccess,
   newDrinkSuccess,
-  newIngredientSuccess,
-  app,
   getDrankSuccess,
-  getIngredientsSuccess,
   editDrankSuccess,
-  editIngredientSuccess,
   deleteDrankSuccess,
 }
