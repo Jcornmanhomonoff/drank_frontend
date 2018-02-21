@@ -12,26 +12,26 @@ const onSignUp = function (event) {
   let data = getFormFields(this)
   event.preventDefault()
   api.signUp(ui.success, ui.failure, data)
-})
+}
 
 const onSignIn = function (event) {
   let data = getFormFields(this)
   console.log("sign-in success")
   event.preventDefault()
   api.signIn(ui.signInSuccess, ui.failure, data)
-})
+}
 
 const onSignOut = function (event) {
   console.log("sign-out success")
   event.preventDefault()
   api.signOut(ui.signOutSuccess, ui.failure)
-})
+}
 
-const onChangePw = function (event){
+const onChangePw = function (event) {
   let data = getFormFields(this)
   event.preventDefault()
   api.changePassword(ui.changePasswordSuccess, ui.failure, data)
-})
+}
 
 const onShowDrank = function (event) {
     event.preventDefault()
@@ -46,14 +46,14 @@ const onShowDrank = function (event) {
     $('.drink-content').html(showDrankHtml)
 }
 
-const onCreateDrank = function (event){
+const onCreateDrank = function (event) {
   event.preventDefault()
   let data = getFormFields(this)
   console.log(data)
   data.drinks.user_id = appData.id
   drinkApi.newDrink(ui.newDrinkSuccess, ui.failure, data)
   api.newIngredient(ui.newIngredientSuccess, ui.failure, data)
-})
+}
 
 let drinkId = ''
 

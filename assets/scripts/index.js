@@ -1,4 +1,3 @@
-'use strict'
 
 // user require with a reference to bundle the file and use it in this file
 // var example = require('./example')
@@ -13,7 +12,6 @@ const authApi = require('./auth/api')
 const authUi = require('./auth/ui')
 const authDrink = require('./auth/drinkApi')
 const events = require('./auth/events')
-// const app = require('./app-data.js')
 
 $(() => {
   events.addHandlers()
