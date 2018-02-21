@@ -4,6 +4,8 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "eslint": "^4.17.0",
+    "grunt-eslint": "^20.1.0",
     "jquery": "^2.2.2"
   },
   "devDependencies": {

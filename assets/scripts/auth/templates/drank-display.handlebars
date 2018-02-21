@@ -1,8 +1,24 @@
-{{#each data}}
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    {{this.name}}
-    <button type="button" data-drink-id={{this.id}} class="btn btn-default open-edit-drink" data-dismiss="modal" data-target="#editDrinkModal">Spruce Things Up!</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Cocktail Menu</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row scrollable">
+        {{#each drinks as |drank|}}
+        <div class="col-sm-12 bottom-border">
+          <div class="drink" id={{drank.id}}>
+            {{drank.name}}
+          </div>
+          <span class="sexy-line"></span>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-md-6 drink-content">
+      Please select a drink to see a recipe.
+    </div>
   </div>
 </div>
-{{/each}}
