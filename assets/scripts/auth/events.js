@@ -45,10 +45,11 @@ const addHandlers = () => {
     authApi.getIngredients(authUi.getIngredientsSuccess, authUi.failure)
   })
   $('.content').on('click', '.drink', onShowDrank)
+  $('.content').on('click', '.edit-drink', onOpenEditDrank)
+  $('.content').on('click', '.update-drink', onEditDrank)
 }
 
 const onShowDrank = function (event) {
-  console.log('here')
     event.preventDefault()
     // get id from clicked item
     const drankId = event.target.id
@@ -60,6 +61,14 @@ const onShowDrank = function (event) {
     const showDrankHtml = showDrankTemplate({ drank })
     $('.drink-content').html(showDrankHtml)
 }
+
+const onOpenEditDrank = function (event) {
+  event.preventDefault()
+  const drinkVal = $(this).siblings().html()
+  $(this).siblings().replaceWith("<input value='" + drinkVal + "'></input><br><button class='update-drink drink-btn'>Submit</button>")
+  $('.edit-drink').hide()
+}
+
 
 module.exports = {
   addHandlers

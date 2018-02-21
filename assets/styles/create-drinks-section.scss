@@ -32,22 +32,4 @@
       font-size: 20px;
     }
   }
-  button {
-    background: white;
-    border-radius: 0;
-    color: grey;
-    border: 5px solid white;
-    font-size: 20px;
-    padding: 12px 0 8px;
-    width: 100%;
-    margin-top: 40px;
-    text-transform: uppercase;
-    &:focus {
-      outline: 0;
-    }
-    &:hover {
-      background: $clear-white;
-      color: white;
-    }
-  }
 }

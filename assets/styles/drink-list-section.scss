@@ -8,6 +8,23 @@
     text-transform: uppercase;
     margin: 40px 0;
   }
+  input {
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid white;
+    border-radius: 0;
+    box-shadow: none;
+    color: white;
+    font-size: 2em;
+    width: 100%;
+    padding: 20px 0px;
+    margin-bottom: 30px;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .scrollable {
