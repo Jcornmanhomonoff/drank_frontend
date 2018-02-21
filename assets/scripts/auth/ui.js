@@ -4,6 +4,7 @@ const app = require('../app-data.js')
 // const authApi = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
+const store = require('../store')
 
 console.log(app)
 console.log(drinkApi)
@@ -80,6 +81,7 @@ const getDrankSuccess = (data) => {
     drinks: data.drinks
   }))
   console.log(data)
+  store.drinks = data.drinks
 }
 
 
