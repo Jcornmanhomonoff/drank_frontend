@@ -29,9 +29,11 @@ const signInSuccess = (data) => {
   app.id = data.user.id
   console.log(app)
   drinkApi.getDrank(getDrankSuccess, failure)
-  $('#signInModal').modal('hide')
-  $(".modal-backdrop").hide()
-  $('.open-create-drink').show()
+  // Add scroll animation to make drink section
+  $('html, body').css('overflow-y', 'visible');
+  $('html, body').animate({
+    scrollTop: $('.create-drinks-section').offset().top
+  }, 1000);
   $('.get-drank').show()
 }
 
@@ -48,7 +50,6 @@ const signOutSuccess = () => {
   $('#createDrinkModal').modal('hide')
   console.log(app)
   $('.content').html('')
-  $('.open-create-drink').hide()
   $('.get-drank').hide()
 }
 

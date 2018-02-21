@@ -40,9 +40,3 @@ $('.open-change-password').on('click', function(event){
   event.preventDefault()
   $('#changePasswordModal').modal('show')
 })
-
-// OPENS CREATE NEW DRINK FROM BUTTON
-$('.open-create-drink').on('click', function(event){
-  event.preventDefault()
-  $('#createDrinkModal').modal('show')
-})
