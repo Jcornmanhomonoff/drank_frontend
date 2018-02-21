@@ -23,9 +23,9 @@ const getDrank = (success, failure) => {
 }
 
 
-const editDrank = (success, failure, data, drinkId) => {
+const editDrank = (success, failure, drinkName, drinkId) => {
   console.log(drinkId)
-  console.log(data)
+  console.log(drinkName)
   $.ajax({
     method:'PATCH',
     url: app.api + 'drinks/' + drinkId,
@@ -34,7 +34,7 @@ const editDrank = (success, failure, data, drinkId) => {
     },
     data: {
       'drink': {
-        'name': data
+        'name': drinkName
       }
     }
     })

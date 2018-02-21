@@ -85,22 +85,6 @@ const getDrankSuccess = (data) => {
   store.drinks = data.drinks
 }
 
-
-  // OPENS EDIT DRINK FORM BUTTON
-  //storing id once edit button is clicked and showing modal
-  $('.content').on('click', '.open-edit-drink', function (event){  //gets drink id
-    event.preventDefault()
-    localStorage.setItem('id', $(this).attr('data-drink-id')) //sets drink id
-    $('#editDrinkModal').modal('show')
-    console.log(event.target)
-  })
-  $('#edit-drink').on('submit', function (event){
-    event.preventDefault()
-    let data = $('#name').val()
-    let id = localStorage.getItem('id') //gets current drink id
-    drinkApi.editDrank(editDrankSuccess, failure, data, id)
-    localStorage.clear()
-  })
   $('.delete-drank').on('click', function (event){
     event.preventDefault()
     let id = localStorage.getItem('id') //gets current drink id
