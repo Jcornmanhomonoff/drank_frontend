@@ -27,6 +27,12 @@
   }
   .cancel {
     display: none;
+    background: $clear-white;
+    color: white;
+    &:hover {
+      background: white !important;
+      color: grey;
+    }
   }
 }
 
