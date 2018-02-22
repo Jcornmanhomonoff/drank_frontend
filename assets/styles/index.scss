@@ -53,5 +53,15 @@ h1 {
     outline: 0 !important;
     background: $clear-white !important;
     border-color: white !important;
+    color: white;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-box-shadow: 0 0 0 1000px none inset !important;
+    -webkit-text-fill-color: white !important;
 }

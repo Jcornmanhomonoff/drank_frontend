@@ -69,6 +69,7 @@ const getDrankSuccess = (data) => {
 
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
+  $('.cancel').hide()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
 
