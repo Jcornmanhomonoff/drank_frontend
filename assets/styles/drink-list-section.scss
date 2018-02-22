@@ -6,7 +6,7 @@
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
-    margin: 40px 0;
+    margin: 20px 0 50px;
   }
   input {
     background: none;
@@ -24,6 +24,23 @@
     &:focus {
       outline: none;
     }
+  }
+  .cancel {
+    display: none;
+    background: $clear-white;
+    color: white;
+    &:hover {
+      background: white !important;
+      color: grey;
+    }
+  }
+}
+
+.drink-content {
+  text-align: center;
+  font-size: 22px;
+  h2 {
+    font-size: 2em
   }
 }
 

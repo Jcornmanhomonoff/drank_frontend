@@ -53,8 +53,6 @@ const newDrinkSuccess = (data) => {
 }
 
 const deleteDrankSuccess = () => {
-  $('.content').html('') //reloads html
-  localStorage.clear()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
 
@@ -67,14 +65,9 @@ const getDrankSuccess = (data) => {
   store.drinks = data.drinks
 }
 
-$('.delete-drank').on('click', function (event){
-  event.preventDefault()
-  let id = localStorage.getItem('id') //gets current drink id
-  drinkApi.deleteDrank(deleteDrankSuccess, failure, id)
-})
-
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
+  $('.cancel').hide()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
 
