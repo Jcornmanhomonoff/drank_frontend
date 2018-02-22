@@ -22,7 +22,6 @@ const onSignIn = function (event) {
 }
 
 const onSignOut = function (event) {
-  console.log("sign-out success")
   event.preventDefault()
   api.signOut(ui.signOutSuccess, ui.failure)
 }
@@ -94,7 +93,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePw)
   $('#create-drink').on('submit', onCreateDrank)
-  $('#sign-out').on('click', onSignOut)
+  $('.sign-out').on('click', onSignOut)
   $('.content').on('click', '.drink', onShowDrank)
   $('.content').on('click', '.edit-drink', onOpenEditDrank)
   $('.content').on('submit', '.update-drink', onEditDrank)

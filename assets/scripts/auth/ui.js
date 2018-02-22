@@ -45,11 +45,20 @@ const changePasswordSuccess = (data) => {
 }
 
 const signOutSuccess = () => {
-  app.user = null
-  $('#editDrinkModal').modal('hide')
-  $('#createDrinkModal').modal('hide')
-  console.log(app)
+  app.token = null
+  app.id = null
+  console.log(store)
+  store.drinks = null
   $('.content').html('')
+  $('#sign-up').show()
+  $('.open-sign-up').show()
+  $('.open-sign-in').show()
+  $('.open-sign-up').addClass('active')
+  $('.open-sign-in').removeClass('active')
+  $('#change-password').hide()
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  // $('html').css('overflow-y', 'hidden')
 }
 
 const newDrinkSuccess = (data) => {
