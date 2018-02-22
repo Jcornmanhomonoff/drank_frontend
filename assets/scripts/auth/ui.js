@@ -53,8 +53,6 @@ const newDrinkSuccess = (data) => {
 }
 
 const deleteDrankSuccess = () => {
-  $('.content').html('') //reloads html
-  localStorage.clear()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
 
