@@ -27,7 +27,14 @@ const signInSuccess = (data) => {
   $('html, body').css('overflow-y', 'visible');
   $('html, body').animate({
     scrollTop: $('.create-drinks-section').offset().top
-  }, 1000);
+  }, 1000)
+  $('#change-password').show()
+  $('.change-password').show()
+  $('.sign-out').show()
+  $('#sign-in').hide()
+  $('.open-sign-in').hide()
+  $('#sign-up').hide()
+  $('.open-sign-up').hide()
 }
 
 const changePasswordSuccess = (data) => {

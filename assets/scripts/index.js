@@ -16,6 +16,9 @@ const events = require('./auth/events')
 $(() => {
   events.addHandlers()
   $('#sign-in').hide()
+  $('#change-password').hide()
+  $('.change-password').hide()
+  $('.sign-out').hide()
   $('.open-sign-up').addClass('active')
   $('.open-sign-up').on('click', function (event) {
     event.preventDefault()
