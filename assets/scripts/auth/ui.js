@@ -5,6 +5,10 @@ const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
 const store = require('../store')
 
+const removeClass = () => {
+    $('button').removeClass('error');
+}
+
 const success = (data) => {
   console.log(data)
 }
@@ -13,9 +17,12 @@ const failure = (error) => {
   console.error(error)
 }
 
-const signUpSuccess = (data) => {
-  console.log(success)
-  console.log(data)
+const signUpFailure = () => {
+  $('#sign-up button').html('Error Signing Up')
+  $('#sign-up button').addClass('error')
+  setTimeout(function () {
+    $('#sign-up button').html('Submit')
+    removeClass()}, 3000)
 }
 
 const signInSuccess = (data) => {
@@ -27,22 +34,53 @@ const signInSuccess = (data) => {
   $('html, body').css('overflow-y', 'visible');
   $('html, body').animate({
     scrollTop: $('.create-drinks-section').offset().top
-  }, 1000);
+  }, 1000)
+  $('#change-password').show()
+  $('.change-password').show()
+  $('.sign-out').show()
+  $('#sign-in').hide()
+  $('.open-sign-in').hide()
+  $('#sign-up').hide()
+  $('.open-sign-up').hide()
+}
+
+const signInFailure = () => {
+  $('#sign-in button').html('Error Signing In')
+  $('#sign-in button').addClass('error')
+  setTimeout(function () {
+    $('#sign-in button').html('Submit')
+    removeClass()}, 3000)
 }
 
 const changePasswordSuccess = (data) => {
-  console.log(app)
   $('#changePasswordModal').modal('hide')
   $(".modal-backdrop").hide()
   console.log(data)
 }
 
+const changePasswordFailure = () => {
+  $('#change-password button').html('Please try again')
+  $('#change-password button').addClass('error')
+  setTimeout(function () {
+    $('#change-password button').html('Submit')
+    removeClass()}, 3000)
+}
+
 const signOutSuccess = () => {
-  app.user = null
-  $('#editDrinkModal').modal('hide')
-  $('#createDrinkModal').modal('hide')
-  console.log(app)
+  app.token = null
+  app.id = null
+  console.log(store)
+  store.drinks = null
   $('.content').html('')
+  $('#sign-up').show()
+  $('.open-sign-up').show()
+  $('.open-sign-in').show()
+  $('.open-sign-up').addClass('active')
+  $('.open-sign-in').removeClass('active')
+  $('#change-password').hide()
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  // $('html').css('overflow-y', 'hidden')
 }
 
 const newDrinkSuccess = (data) => {
@@ -75,12 +113,15 @@ const editDrankSuccess = (data) => {
 module.exports = {
   failure,
   success,
+  signUpFailure,
   signInSuccess,
+  signInFailure,
   signOutSuccess,
-  signUpSuccess,
   changePasswordSuccess,
+  changePasswordFailure,
   newDrinkSuccess,
   getDrankSuccess,
   editDrankSuccess,
   deleteDrankSuccess,
+  removeClass
 }

@@ -36,7 +36,7 @@
   }
 }
 
-#sign-up, #sign-in {
+#sign-up, #sign-in, #change-password {
   input {
     background: none;
     border-top: none;
@@ -72,6 +72,11 @@
   }
 }
 
-.active.open-sign-up, .active.open-sign-in {
+.active.open-sign-up, .active.open-sign-in, .active.change-password {
   background: $clear-white;
+}
+
+.error {
+  color: white !important;
+  background: #a51712 !important;
 }
