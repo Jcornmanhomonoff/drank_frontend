@@ -18,7 +18,11 @@
       </div>
     </div>
     <div class="col-md-6 drink-content">
-      Please select a drink to see a recipe.
+      {{#if drinks}}
+        Please select a drink to see a recipe.
+      {{else}}
+        Please create a drink above
+      {{/if}}
     </div>
   </div>
 </div>
