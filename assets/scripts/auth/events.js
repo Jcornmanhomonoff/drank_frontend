@@ -11,7 +11,11 @@ const store = require('../store')
 const onSignUp = function (event) {
   let data = getFormFields(this)
   event.preventDefault()
-  api.signUp(ui.success, ui.signUpFailure, data)
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    ui.signUpFailure()
+  } else {
+    api.signUp(ui.success, ui.signUpFailure, data)
+  }
 }
 
 const onSignIn = function (event) {
