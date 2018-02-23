@@ -11,25 +11,24 @@ const store = require('../store')
 const onSignUp = function (event) {
   let data = getFormFields(this)
   event.preventDefault()
-  api.signUp(ui.success, ui.failure, data)
+  api.signUp(ui.success, ui.signUpFailure, data)
 }
 
 const onSignIn = function (event) {
   let data = getFormFields(this)
-  console.log("sign-in success")
   event.preventDefault()
-  api.signIn(ui.signInSuccess, ui.failure, data)
+  api.signIn(ui.signInSuccess, ui.signInFailure, data)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
-  api.signOut(ui.signOutSuccess, ui.failure)
+  api.signOut(ui.signOutSuccess, ui.signOutFailure)
 }
 
 const onChangePw = function (event) {
   let data = getFormFields(this)
   event.preventDefault()
-  api.changePassword(ui.changePasswordSuccess, ui.failure, data)
+  api.changePassword(ui.changePasswordSuccess, ui.changePasswordFailure, data)
 }
 
 const onShowDrank = function (event) {

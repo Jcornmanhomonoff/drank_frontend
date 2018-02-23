@@ -75,3 +75,8 @@
 .active.open-sign-up, .active.open-sign-in, .active.change-password {
   background: $clear-white;
 }
+
+.error {
+  color: white !important;
+  background: #a51712 !important;
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 const app = {
-  api: 'https://protected-cove-96634.herokuapp.com/',
+  api: 'http://localhost:4741/',
 };
 
 module.exports = app;
