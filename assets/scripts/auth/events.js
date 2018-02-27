@@ -14,12 +14,13 @@ const onSignUp = function (event) {
   if (data.credentials.password !== data.credentials.password_confirmation) {
     ui.signUpFailure()
   } else {
-    api.signUp(ui.success, ui.signUpFailure, data)
+    api.signUp(ui.signInSuccess, ui.signUpFailure, data)
   }
 }
 
 const onSignIn = function (event) {
   let data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.signIn(ui.signInSuccess, ui.signInFailure, data)
 }

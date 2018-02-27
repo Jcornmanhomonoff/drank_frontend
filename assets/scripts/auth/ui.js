@@ -3,6 +3,7 @@
 const app = require('../app-data.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
+const api = require('./api')
 const store = require('../store')
 
 const removeClass = () => {
@@ -15,6 +16,10 @@ const success = (data) => {
 
 const failure = (error) => {
   console.error(error)
+}
+
+const signUpSuccess = (data) => {
+  console.log(data)
 }
 
 const signUpFailure = () => {
@@ -113,6 +118,7 @@ const editDrankSuccess = (data) => {
 module.exports = {
   failure,
   success,
+  signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
