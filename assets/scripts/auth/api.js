@@ -17,7 +17,7 @@ const signUp = (success, failure, data) => {
 const signOut = (success, failure) => {
   $.ajax({
     method:'DELETE',
-    url: app.api + 'sign-out/' + app.id,
+    url: app.api + 'sign-out',
     headers: {
       Authorization: 'Token token=' + app.token,
     },
