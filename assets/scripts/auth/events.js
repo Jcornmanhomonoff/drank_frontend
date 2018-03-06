@@ -53,7 +53,6 @@ const onCreateDrank = function (event) {
   event.preventDefault()
   let data = getFormFields(this)
   console.log(data)
-  data.drinks.user_id = appData.id
   drinkApi.newDrink(ui.newDrinkSuccess, ui.failure, data)
 }
 
