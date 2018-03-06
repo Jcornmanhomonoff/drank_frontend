@@ -33,7 +33,8 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
   app.token = data.user.token
   app.id = data.user.id
-  console.log(app)
+  console.log(data)
+  $('.user-name').text('Welcome ' +  data.user.first_name)
   drinkApi.getDrank(getDrankSuccess, failure)
   // Add scroll animation to make drink section
   $('html, body').css('overflow-y', 'visible');

@@ -72,6 +72,11 @@
   }
 }
 
+.user-name {
+  border-top: 3px solid white;
+  padding-top: 20px;
+  margin-top: 0;
+}
 .active.open-sign-up, .active.open-sign-in, .active.change-password {
   background: $clear-white;
 }
