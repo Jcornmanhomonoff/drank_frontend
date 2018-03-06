@@ -90,7 +90,7 @@ const signOutSuccess = () => {
   $('#sign-in input').val('')
   $('#sign-up input').val('')
   $('#create-drink input').val('')
-  // $('html').css('overflow-y', 'hidden')
+  $('html').css('overflow-y', 'hidden')
 }
 
 const newDrinkSuccess = (data) => {
