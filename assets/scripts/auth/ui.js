@@ -86,6 +86,7 @@ const signOutSuccess = () => {
   $('#change-password').hide()
   $('.change-password').hide()
   $('.sign-out').hide()
+  $('.user-name').text('')
   // $('html').css('overflow-y', 'hidden')
 }
 
