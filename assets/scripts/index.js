@@ -1,7 +1,4 @@
-
-// user require with a reference to bundle the file and use it in this file
-// var example = require('./example')
-
+'use strict'
 // use require without a reference to ensure a file is bundled
 require('./example')
 
@@ -34,10 +31,4 @@ $(() => {
     $('#sign-in').show()
     $('.open-sign-in').addClass('active')
   })
-})
-
-// OPENS CHANGE PASSWORD FROM DROPDOWN
-$('.open-change-password').on('click', function(event){
-  event.preventDefault()
-  $('#changePasswordModal').modal('show')
 })

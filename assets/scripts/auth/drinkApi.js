@@ -4,17 +4,14 @@ const app = require('../app-data.js')
 const ui = require('./ui.js')
 
 const newDrink = (success, failure, data) => {
+  console.log(data)
   $.ajax({
     method:'POST',
     url: app.api + 'drinks',
     headers: {
       Authorization: 'Token token='+ app.token,
     },
-    data: {
-      "drink": {
-        "name": data.drinks.name
-      }
-    },
+    data
   })
   .done(success)
   .fail(failure)
