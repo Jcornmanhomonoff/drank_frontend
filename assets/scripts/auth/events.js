@@ -75,7 +75,6 @@ const onOpenEditDrank = function (event) {
 
 const onEditDrank = function (event) {
   event.preventDefault()
-  const drinkName = $(this).find("input").val()
   drinkApi.editDrank(ui.editDrankSuccess, ui.failure, drinkName, drinkId)
 }
 
@@ -89,10 +88,11 @@ const onDeleteDrank = function (event) {
 const onCancelEdit = function (event) {
   event.preventDefault()
   const drinkVal = $(this).siblings("form").find("input").val()
-  $(this).siblings("form").replaceWith("<h2>" + drinkVal + "</h2>")
-  $('.edit-drink').show()
-  $('.cancel').hide()
-  $('.submit-edit-drink').hide()
+  const drank = store.drinks.find(function (drink) {
+    return drink.id === drinkId
+  })
+  const showDrankHtml = showDrankTemplate({ drank })
+  $('.drink-content').html(showDrankHtml)
 }
 
 const addHandlers = () => {
