@@ -65,7 +65,6 @@ const onOpenEditDrank = function (event) {
   const drink = store.drinks.find(function (drink) {
     return drink.id === drinkId
   })
-  console.log('drink is ', drink)
   let editDrankDisplayTemplate = require('./templates/drank-edit.handlebars')
   $('.drink-content').html(editDrankDisplayTemplate({
     drink
@@ -75,7 +74,8 @@ const onOpenEditDrank = function (event) {
 
 const onEditDrank = function (event) {
   event.preventDefault()
-  drinkApi.editDrank(ui.editDrankSuccess, ui.failure, drinkName, drinkId)
+  let data = getFormFields(this)
+  drinkApi.editDrank(ui.editDrankSuccess, ui.failure, data, drinkId)
 }
 
 const onDeleteDrank = function (event) {
@@ -87,7 +87,6 @@ const onDeleteDrank = function (event) {
 
 const onCancelEdit = function (event) {
   event.preventDefault()
-  const drinkVal = $(this).siblings("form").find("input").val()
   const drank = store.drinks.find(function (drink) {
     return drink.id === drinkId
   })

@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
 const api = require('./api')
 const store = require('../store')
+const showDrankTemplate = require('./templates/drank-content.handlebars')
 
 const removeClass = () => {
     $('button').removeClass('error');
@@ -115,8 +116,12 @@ const getDrankSuccess = (data) => {
 
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
-  $('.cancel').hide()
+  const drank = store.drinks.find(function (drink) {
+    return drink.id === app.drinkId
+  })
+  const showDrankHtml = showDrankTemplate({ drank })
   drinkApi.getDrank(getDrankSuccess, failure)
+  $('.drink-content').html(showDrankHtml)
 }
 
 

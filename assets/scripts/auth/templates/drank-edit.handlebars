@@ -1,8 +1,8 @@
-<form class='update-drink'>
-  <input value="{{drink.name}}"></input>
-  <input value="{{drink.alcohol}}"></input>
-  <input value="{{drink.mixers}}"></input>
-  <input value="{{drink.directions}}"></input>
+<form class="update-drink">
+  <input type="text" value="{{drink.name}}" name="drink[name]"></input>
+  <input type="text" value="{{drink.alcohol}}" name="drink[alcohol]"></input>
+  <input type="text" value="{{drink.mixers}}" name="drink[mixers]"></input>
+  <input type="text" value="{{drink.directions}}" name="drink[directions]"></input>
   <div class="row">
     <div class="col-sm-6">
       <button class="submit-edit-drink drink-btn" type="submit">Submit</button>
