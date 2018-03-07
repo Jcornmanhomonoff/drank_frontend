@@ -5,6 +5,7 @@ const appData = require('../app-data')
 const api = require('./api')
 const ui = require('./ui')
 const showDrankTemplate = require('./templates/drank-content.handlebars')
+const editDrankTemplate = require('./templates/drank-edit.handlebars')
 const drinkApi = require('./drinkApi')
 const store = require('../store')
 
@@ -61,10 +62,14 @@ let drinkId = ''
 const onOpenEditDrank = function (event) {
   event.preventDefault()
   drinkId = $(this).data('id')
-  const drinkVal = $(this).siblings("h2").html()
-  $(this).siblings("h2").replaceWith("<form class='update-drink'><input value='" + drinkVal + "'></input><br><button class='submit-edit-drink drink-btn' type='submit'>Submit</button></form>")
-  $('.edit-drink').hide()
-  $('.cancel').show()
+  const drink = store.drinks.find(function (drink) {
+    return drink.id === drinkId
+  })
+  console.log('drink is ', drink)
+  let editDrankDisplayTemplate = require('./templates/drank-edit.handlebars')
+  $('.drink-content').html(editDrankDisplayTemplate({
+    drink
+  }))
   return drinkId
 }
 
