@@ -98,6 +98,8 @@ const signOutSuccess = () => {
 const newDrinkSuccess = (data) => {
   app.drinkId = data.drink.id
   drinkApi.getDrank(getDrankSuccess, failure)
+  $('#create-drink input').val('')
+  $('html,body').animate({scrollTop: $('.drink-list-section').offset().top},1000);
 }
 
 const deleteDrankSuccess = () => {
