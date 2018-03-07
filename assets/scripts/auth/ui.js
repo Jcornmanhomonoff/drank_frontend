@@ -60,9 +60,10 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('#changePasswordModal').modal('hide')
-  $(".modal-backdrop").hide()
-  console.log(data)
+  $('#change-password button').html('Success')
+  setTimeout(function () {
+    $('#change-password button').html('Submit')
+  }, 3000)
 }
 
 const changePasswordFailure = () => {
@@ -96,8 +97,6 @@ const signOutSuccess = () => {
 
 const newDrinkSuccess = (data) => {
   app.drinkId = data.drink.id
-  $('#createDrinkModal').modal('hide')
-  $(".modal-backdrop").hide()
   drinkApi.getDrank(getDrankSuccess, failure)
 }
 
@@ -116,11 +115,11 @@ const getDrankSuccess = (data) => {
 
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
+  drinkApi.getDrank(getDrankSuccess, failure)
   const drank = store.drinks.find(function (drink) {
     return drink.id === app.drinkId
   })
   const showDrankHtml = showDrankTemplate({ drank })
-  drinkApi.getDrank(getDrankSuccess, failure)
   $('.drink-content').html(showDrankHtml)
 }
 
