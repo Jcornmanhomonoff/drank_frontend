@@ -1,7 +1,7 @@
 'use strict';
 
 const app = {
-  api: 'http://localhost:4741/',
+  api: 'https://shrouded-ravine-93830.herokuapp.com/',
 };
 
 module.exports = app;
