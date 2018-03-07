@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const drinkApi = require('./drinkApi')
 const api = require('./api')
 const store = require('../store')
+const showDrankTemplate = require('./templates/drank-content.handlebars')
 
 const removeClass = () => {
     $('button').removeClass('error');
@@ -59,9 +60,10 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('#changePasswordModal').modal('hide')
-  $(".modal-backdrop").hide()
-  console.log(data)
+  $('#change-password button').html('Success')
+  setTimeout(function () {
+    $('#change-password button').html('Submit')
+  }, 3000)
 }
 
 const changePasswordFailure = () => {
@@ -95,9 +97,9 @@ const signOutSuccess = () => {
 
 const newDrinkSuccess = (data) => {
   app.drinkId = data.drink.id
-  $('#createDrinkModal').modal('hide')
-  $(".modal-backdrop").hide()
   drinkApi.getDrank(getDrankSuccess, failure)
+  $('#create-drink input').val('')
+  $('html,body').animate({scrollTop: $('.drink-list-section').offset().top},1000);
 }
 
 const deleteDrankSuccess = () => {
@@ -115,8 +117,12 @@ const getDrankSuccess = (data) => {
 
 const editDrankSuccess = (data) => {
   app.drinkId = data.drink.id
-  $('.cancel').hide()
   drinkApi.getDrank(getDrankSuccess, failure)
+  const drank = store.drinks.find(function (drink) {
+    return drink.id === app.drinkId
+  })
+  const showDrankHtml = showDrankTemplate({ drank })
+  $('.drink-content').html(showDrankHtml)
 }
 
 

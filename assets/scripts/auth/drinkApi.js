@@ -30,20 +30,15 @@ const getDrank = (success, failure) => {
 }
 
 
-const editDrank = (success, failure, drinkName, drinkId) => {
-  console.log(drinkId)
-  console.log(drinkName)
+const editDrank = (success, failure, data, drinkId) => {
+  console.log(data)
   $.ajax({
     method:'PATCH',
     url: app.api + 'drinks/' + drinkId,
     headers: {
       Authorization: 'Token token='+ app.token,
     },
-    data: {
-      'drink': {
-        'name': drinkName
-      }
-    }
+    data
     })
     .done(success)
     .fail(failure)
