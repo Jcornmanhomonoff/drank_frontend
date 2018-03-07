@@ -39,7 +39,7 @@ const signIn = (success, failure, data) => {
 const changePassword = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
-    url: app.api + 'change-password/' + app.id,
+    url: app.api + 'change-password',
     data,
     headers: {
       Authorization: 'Token token='+ app.token,
